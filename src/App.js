@@ -1,24 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import { 
+    BrowserRouter, 
+    Route,
+    Routes
+} from "react-router-dom";
+
+import MediasList from "./components/MediasList/MediasList";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <BrowserRouter>
+        {/* <TopNav/> */}
+        <Routes>
+            <Route path="/" element={<h1>Начало</h1>} />
+            <Route path="/download" element={<h1>Изтегли</h1>} />
+            <Route path="/frequent" element={<h1>Често срещани лъжи</h1>} />
+            <Route path="/opinions" element={<h1>Мнения</h1>} />
+            <Route path="/medias" element={<MediasList/>}></Route>
+            <Route path="/about" element={<h1>За нас</h1>}></Route>
+            {/* <Route path="/medias/{media-name}" element={<h1>Детайли за медия</h1>}></Route> */}
+        </Routes>
+      </BrowserRouter>
   );
 }
 
