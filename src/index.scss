@@ -1,0 +1,48 @@
+@use './styles/colors.scss' as *;
+@use './styles/timings.scss' as *;
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+//big text font idea: underwave
+body{
+    background-color: $background-color;
+    color: $text-color;
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    padding: 0;
+    margin: 0;
+}
+@media (max-width: 768px) {
+    body{
+        padding-top: 67px;
+    }
+}
+.dark{
+    background-color: $background-color-dark;
+    color: $text-color-light;
+}
+
+.call-to-action-button{
+    background-color:$accent-color;
+    color: $background-color;
+    display: inline-block;
+    text-decoration: none;
+    border-radius: 20px;
+    padding: .5rem;
+    box-shadow: 1px 2px 10px #999;
+    font-weight: bold;
+    text-align: center;
+    transition: all $time-hover-response;
+    &:hover{
+        background-color: darken($accent-color,5);
+    }
+}
+.button-primary{
+    background-color: $primary-color;
+}
+.text-accent{
+    color: $accent-color;
+}
+.text-primary{
+    color: $primary-color;
+}
