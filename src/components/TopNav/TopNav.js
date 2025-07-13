@@ -31,14 +31,15 @@ export default function TopNav(){
         <div className={`top-navigation ${isFixed ? 'fixed' : ''} ${isOpen ? 'open' : ''}`}>
             <nav>
                 <div>
-                    <NavLink className="nav-brand" to="/"> ! MediaCritique</NavLink>
+                    <NavLink className="nav-brand" to="/"><img src="/images/logo3.png" alt="MediaCritique"/></NavLink>
                     <button className="menu-toggle" onClick={() => setIsOpen(!isOpen)}> {isOpen ? '×' : '☰'} </button>
-                    <NavLink to="/about">За нас</NavLink>
+
                 </div>
                 <div className="center">
                     <NavLink to="/opinions">Мнения</NavLink>
                     <NavLink to="/medias">Медии</NavLink>
                     <NavLink to="/frequent">Често срещани лъжи</NavLink>
+                    <NavLink to="/about">За нас</NavLink>
                 </div>
                 <div>
                     <NavLink to="/report">Сигнализирай</NavLink>
