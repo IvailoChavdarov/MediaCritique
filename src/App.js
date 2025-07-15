@@ -5,7 +5,7 @@ import {
 } from "react-router-dom";
 import TopNav from './components/TopNav/TopNav';
 
-import MediasList from "./components/MediasList/MediasList";
+import MediasPage from "./components/MediasPage/MediasPage";
 import HomePage from "./components/HomePage/HomePage";
 import OpinionsPage from "./components/OpinionsPage/OpinionsPage";
 import ArticleDetailsPage from "./components/ArticleDetailsPage/ArticleDetailsPage";
@@ -20,7 +20,7 @@ function App() {
             <Route path="/frequent" element={<h1>Често срещани лъжи</h1>} />
             <Route path="/opinions" element={<OpinionsPage/>} />
             <Route path="/opinions/:compoundId" element={<ArticleDetailsPage />} />
-            <Route path="/medias" element={<MediasList/>}></Route>
+            <Route path="/medias" element={<MediasPage/>}></Route>
             <Route path="/about" element={<h1>За нас</h1>}></Route>
             {/* <Route path="/medias/{media-name}" element={<h1>Детайли за медия</h1>}></Route> */}
         </Routes>
