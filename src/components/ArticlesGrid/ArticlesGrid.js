@@ -1,6 +1,8 @@
 import './ArticlesGrid.scss'
 import { Link } from "react-router";
 import { FaReadme } from "react-icons/fa";
+import { transliterate } from "../../utils/transliterate";
+import { slugify } from "../../utils/slugify";
 export default function ArticlesGrid({articles}){
     return(
         <div className='articles-container'>
@@ -11,7 +13,7 @@ export default function ArticlesGrid({articles}){
                             <img src={article.imageUrl} alt="article-image"/>
                             <h3>{article.title}</h3>
                             <p className='article-catch'>{article.catch}</p>
-                            <Link className='call-to-action-button'>
+                            <Link to={`/opinions/${article.id}-${slugify(transliterate(article.title))}`} className='call-to-action-button'>
                                 <FaReadme/>
                                  Прочети
                             </Link>

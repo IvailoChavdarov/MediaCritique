@@ -23,7 +23,7 @@ export default function TopNav(){
         window.addEventListener('scroll', handleScroll);
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
-      useEffect(() => {
+    useEffect(() => {
         setIsOpen(false);
     }, [location]);
 

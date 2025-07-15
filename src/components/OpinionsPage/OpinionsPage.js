@@ -1,6 +1,7 @@
 import { db } from "../../firebase";
 import { collection, getDocs } from "firebase/firestore";
 import { useEffect, useState } from "react";
+import { transliterateDate } from "../../utils/transliterate";
 import ArticlesGrid from '../ArticlesGrid/ArticlesGrid'
 import './OpinionsPage.scss'
 
@@ -14,7 +15,8 @@ export default function OpinionsPage(){
             try {
                 const querySnapshot = await getDocs(collection(db, "opinions"));
                 const articles = querySnapshot.docs.map(doc => ({
-                    date: doc.data().datePosted.toDate().toDateString(),
+                    id: doc.id,
+                    date: transliterateDate(doc.data().datePosted.toDate().toDateString()),
                     ...doc.data()
                 }));
                 setData(articles);
