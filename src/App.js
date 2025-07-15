@@ -4,11 +4,11 @@ import {
     Routes
 } from "react-router-dom";
 import TopNav from './components/TopNav/TopNav';
-
 import MediasPage from "./components/MediasPage/MediasPage";
 import HomePage from "./components/HomePage/HomePage";
 import OpinionsPage from "./components/OpinionsPage/OpinionsPage";
 import ArticleDetailsPage from "./components/ArticleDetailsPage/ArticleDetailsPage";
+import MediaDetailsPage from "./components/MediaDetailsPage/MediaDetailsPage";
 
 function App() {
   return (
@@ -21,8 +21,8 @@ function App() {
             <Route path="/opinions" element={<OpinionsPage/>} />
             <Route path="/opinions/:compoundId" element={<ArticleDetailsPage />} />
             <Route path="/medias" element={<MediasPage/>}></Route>
+            <Route path="/medias/:compoundId" element={<MediaDetailsPage />} />
             <Route path="/about" element={<h1>За нас</h1>}></Route>
-            {/* <Route path="/medias/{media-name}" element={<h1>Детайли за медия</h1>}></Route> */}
         </Routes>
       </BrowserRouter>
   );

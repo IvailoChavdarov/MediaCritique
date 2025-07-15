@@ -55,7 +55,7 @@ export default function MediasPage() {
         <div className="medias-list-container">
             <h1>Въведена информация за медии:</h1>
             <ul className="medias-list">
-                {data.map((media, i) => (
+                {data.map((media) => (
                     <li key={media.id}>
                         <Link to={`/medias/${media.id}-${slugify(transliterate(media.name))}`} className="medias-list-item">
                             {media.imgUrl &&

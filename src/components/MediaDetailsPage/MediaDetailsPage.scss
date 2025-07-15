@@ -1,0 +1,114 @@
+@use '../../styles/colors' as *;
+@use '../../styles/timings' as *;
+.media-details-container{
+    max-width: 1200px;
+    margin:auto;
+    min-height: 150vh;
+    .reference-list-container{
+        margin:50px;
+    }
+}
+.media-details{
+    margin: 50px 0;
+    display: flex;
+    gap:30px;
+    a{
+        color:$primary-color;
+        text-decoration: none;
+        border-bottom: 1px solid rgba($primary-color, 0.4);
+        transition: all $time-hover-response;
+        &:hover{
+            border-bottom-color: rgba($primary-color, 0.8);
+        }
+    }
+    &-data{
+        min-width: 350px;
+        text-align: center;
+        img{
+            max-width: 300px;
+            max-height: 300px;
+        }
+        .media-risk{
+            position: relative;
+            &-scale{
+                display: flex;
+                list-style: none;
+                gap: 10px;
+                padding: 0;
+                justify-content: center;
+                align-items: center;
+                li{
+                    height: 40px;
+                    width: 40px;
+                    background-color: red;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    border-radius: 7px;
+                    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+                    font-size: larger;
+                    color: rgba(255,255,255, 0.7);
+                }
+                :nth-child(1){
+                    background-color: #5f9600;
+                }
+                :nth-child(2){
+                    background-color:#afc611 ;
+                }
+                :nth-child(3){
+                    background-color: #ffc302;
+                }
+                :nth-child(4){
+                    background-color: #e74404;
+                }
+                :nth-child(5){
+                    background-color: #b20811;
+                }
+                .active{
+                    height: 55px;
+                    width: 55px;
+                    font-size: x-large;
+                    color:rgba(255,255,255,1);
+                }
+            }
+            &-explain{
+                list-style: none;
+                text-align: left;
+                padding-left: 0;
+                li{
+                    margin-bottom: 10px;
+                }
+                position: absolute;
+                background-color: $text-color;
+                color: $background-color;
+                padding: 25px;
+                margin:15px;
+                display: none;
+                opacity: 0;
+                &::before{
+                    content:"";
+                    border-width:0px 25px 25px;
+                    border-style:solid;
+                    border-color:$text-color transparent;
+                    position:absolute;
+                    top:-25px;
+                    left:50%;
+                    transform: translateX(-50%);
+                }
+            }
+            &:hover{
+                .media-risk-explain{
+                    display: block;
+                    opacity: 1;
+                }
+            }
+        }
+    }
+    &-content{
+        h3{
+            border-left: 3px solid rgba($text-color, 0.6);
+            padding-left: 20px;
+            text-align: left;
+        }
+    }
+}
