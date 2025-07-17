@@ -8,14 +8,16 @@ import { TbInfoSquareRoundedFilled } from "react-icons/tb";
 import Breadcrumb from '../Breadcrumb/Breadcrumb';
 import ShareButtons from '../ShareButtons/ShareButtons';
 import NotFoundPage from '../NotFoundPage/NotFoundPage';
+import ErrorPage from '../ErrorPage/ErrorPage';
+import Loader from '../Loader/Loader';
 
 export default function OpinionDetailsPage(){
 
     const { compoundId } = useParams();
-
     const [opinionId] = compoundId.split('-');
     const [article, setArticle] = useState(null);
     const [loading, setLoading] = useState(true);
+    const [hasError, setHasError] = useState(false);
 
     useEffect(() => {
         const fetchArticle = async () => {
@@ -28,32 +30,33 @@ export default function OpinionDetailsPage(){
                 setArticle({ 
                     id: docSnap.id,
                     date: transliterateDate(data.datePosted.toDate().toDateString()),
-                    ...data });
-            } else {
-                // TODO: 404 page
-            }
-            } catch (error) {
-                // TODO: Error page
-            } finally {
-                setLoading(false);
-            }
+                    ...data }
+                );
+            } 
+        } 
+        catch (error) {
+            setHasError(true)
+        } 
+        finally {
+            setLoading(false);
+        }
         };
         fetchArticle();
     }, [opinionId]);
 
     let breadcrumbPath = [];
     if (loading){
-        return <div>Loading...</div>
+        return <Loader/>
     }
-    if (!article) {
+    else if(hasError){
+        return <ErrorPage/>
+    }
+    else if (!article){
         return <NotFoundPage previousPage={"/opinions"}/>
     }
     else{
         breadcrumbPath = [{name:"Начало", url:"/"}, {name:"Мнения", url:"/opinions"}, {name:article.title}]
     };
-    
-
-
 
     return (
         <div className="article-details">

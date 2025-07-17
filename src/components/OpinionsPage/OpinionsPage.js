@@ -4,6 +4,8 @@ import { useEffect, useState } from "react";
 import { transliterateDate } from "../../utils/transliterate";
 import ArticlesGrid from '../ArticlesGrid/ArticlesGrid'
 import './OpinionsPage.scss'
+import ErrorPage from "../ErrorPage/ErrorPage";
+import Loader from "../Loader/Loader";
 
 export default function OpinionsPage(){
     const [data, setData] = useState([]);
@@ -20,10 +22,11 @@ export default function OpinionsPage(){
                     ...doc.data()
                 }));
                 setData(articles);
-            } catch (err) {
-                setError(err.message);
-                console.error("Error fetching articles:", err);
-            } finally {
+            } 
+            catch (err) {
+                setError(err);
+            } 
+            finally {
                 setIsLoading(false);
             }
         };
@@ -31,9 +34,9 @@ export default function OpinionsPage(){
         fetchData();
     }, []);
 
-    //TODO: add error page
-    if (error) return <div>{error}</div>;
-
+    if (error) return <ErrorPage/>;
+    
+    if (isLoading) return <Loader/>;
 
     return(
       <div className="opinions-container">

@@ -4,6 +4,8 @@ import { useEffect, useState } from "react";
 import ArticlesGrid from '../ArticlesGrid/ArticlesGrid'
 import SuggestionCarusel from "../SuggestionCarusel/SuggestionCarusel";
 import './FrequentLiesPage.scss'
+import ErrorPage from "../ErrorPage/ErrorPage";
+import Loader from "../Loader/Loader";
 
 export default function FrequentLiesPage(){
     const [data, setData] = useState([]);
@@ -29,21 +31,21 @@ export default function FrequentLiesPage(){
         fetchData();
     }, []);
 
-    //TODO: add error page
-    if (error) return <div>{error}</div>;
+    if (error) return <ErrorPage/>;
 
+    if(isLoading) return <Loader/>
 
     return(
         <>
-        <div className="opinions-container">
-            <h1>Често срещани лъжи</h1>
-            <h2>Лъжите, които чуваме всеки ден и съзнателно или несъзнателно ни влияят.</h2>
-            {isLoading? <span>Loading...</span> : <ArticlesGrid articles={data} category={"lies"}/>}
-        </div>  
-        <div className="suggestion-section">
-            <h3>За да се информирате, препоръчваме да следите:</h3>
-            <SuggestionCarusel/>
-        </div>
+            <div className="opinions-container">
+                <h1>Често срещани лъжи</h1>
+                <h2>Лъжите, които чуваме всеки ден и съзнателно или несъзнателно ни влияят.</h2>
+                {isLoading? <span>Loading...</span> : <ArticlesGrid articles={data} category={"lies"}/>}
+            </div>  
+            <div className="suggestion-section">
+                <h3>За да се информирате, препоръчваме да следите:</h3>
+                <SuggestionCarusel/>
+            </div>
         </>
     )
 }

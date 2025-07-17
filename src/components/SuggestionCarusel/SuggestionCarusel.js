@@ -5,11 +5,14 @@ import { Link } from "react-router-dom";
 import { FaExternalLinkAlt } from "react-icons/fa";
 import { RxCaretLeft, RxCaretRight } from "react-icons/rx";
 import './SuggestionCarusel.scss'
+import ErrorPage from "../ErrorPage/ErrorPage";
+import Loader from "../Loader/Loader";
 
 export default function SuggestionCarusel() {
     const [suggestions, setSuggestions] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
     const [currentSlide, setCurrentSlide] = useState(0)
+    const [hasError, setHasError] = useState(false);
 
     const nextSlideTime = 10000;
     const intervalRef = useRef(null); 
@@ -21,9 +24,11 @@ export default function SuggestionCarusel() {
                 setSuggestions(snapshot.docs.map(doc => ({
                     ...doc.data()
                 })).reverse());
-            } catch (error) {
-                console.error("Error fetching suggestions:", error);
-            } finally {
+            } 
+            catch (error) {
+                setHasError(true)
+            } 
+            finally {
                 setIsLoading(false);
             }
         };
@@ -66,8 +71,10 @@ export default function SuggestionCarusel() {
         startAutoRotation();
     };
 
-    if (isLoading) return <div>Loading suggestions...</div>;
+    if (isLoading) return <Loader/>;
 
+    if(hasError) return <ErrorPage/>;
+    
     return (
         <div className="suggestion-carusel">
             <div className="suggestion-carusel-content">

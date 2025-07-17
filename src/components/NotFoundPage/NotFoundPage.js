@@ -10,7 +10,7 @@ export default function NotFoundPage({previousPage}){
                 <h2>Не е намерена такава страница</h2>
                 <Link className='call-to-action-button' to={previousPage? previousPage : "/"}>Към <span>{previousPage? "предишната": "начална"}</span> страница</Link>
             </div>
-            <img width="800" src={diagram} alt="We broke something or you can't write"/>
+            <img width="800" src={diagram} alt="We broke something or you can't type"/>
         </div>
     )
 }

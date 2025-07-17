@@ -6,12 +6,17 @@ import { slugify } from "../../utils/slugify";
 import { transliterate } from "../../utils/transliterate";
 import { IoIosArrowForward } from "react-icons/io";
 import './MediasPage.scss';
+import ErrorPage from "../ErrorPage/ErrorPage";
+import Loader from "../Loader/Loader";
 
 export default function MediasPage() {
     const [data, setData] = useState([]);
     const [lastDoc, setLastDoc] = useState(null);
     const [loading, setLoading] = useState(false);
+    //follow first load for loader component
+    const [isLoadingInitial, setIsLoadingInitial] = useState(true);
     const [hasMore, setHasMore] = useState(true);
+    const [hasError, setHasError] = useState(false);
     const pageSize = 15; 
     const loadMedias = async (initial = false) => {
         setLoading(true);
@@ -28,28 +33,37 @@ export default function MediasPage() {
                 id: doc.id,
                 ...doc.data()
             }));
-
             if (initial) {
                 setData(items);
-            } else {
+                setIsLoadingInitial(false)
+            } 
+            else {
                 setData(prev => [...prev, ...items]);
             }
 
             if (snapshot.docs.length < pageSize) {
                 setHasMore(false);
-            } else {
+            } 
+            else {
                 setLastDoc(snapshot.docs[snapshot.docs.length - 1]);
             }
-        } catch (err) {
-            //TODO: error page
+        } 
+        catch (err) {
+            setHasError(true)
         }
-        //TODO: add loader
-        setLoading(false);
+        finally{
+            setLoading(false);
+        }
+
     };
 
     useEffect(() => {
         loadMedias(true);
     }, []);
+
+    if (hasError) return <ErrorPage/>;
+
+    if (isLoadingInitial) return <Loader/>;
 
     return (
         <div className="medias-list-container">

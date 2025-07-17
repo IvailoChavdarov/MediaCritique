@@ -6,6 +6,8 @@ import Breadcrumb from '../Breadcrumb/Breadcrumb';
 import './MediaDetailsPage.scss'
 import { TbInfoSquareRoundedFilled } from "react-icons/tb";
 import NotFoundPage from '../NotFoundPage/NotFoundPage';
+import ErrorPage from '../ErrorPage/ErrorPage';
+import Loader from '../Loader/Loader';
 
 export default function MediaDetailsPage(){
 
@@ -14,6 +16,7 @@ export default function MediaDetailsPage(){
     const [mediaId] = compoundId.split('-');
     const [media, setMedia] = useState(null);
     const [loading, setLoading] = useState(true);
+    const [hasError, setHasError] = useState(false);
 
     useEffect(() => {
         const fetchArticle = async () => {
@@ -25,22 +28,26 @@ export default function MediaDetailsPage(){
                 const data = docSnap.data();
                 setMedia({ 
                     id: docSnap.id,
-                    ...data });
-            } else {
-                // TODO: 404 page
+                    ...data }
+                );
             }
-            } catch (error) {
-                // TODO: Error page
-            } finally {
-                setLoading(false);
-            }
+        } 
+        catch (error) {
+            setHasError(true)
+        } 
+        finally {
+            setLoading(false);
+        }
         };
         fetchArticle();
     }, [mediaId]);
 
     let breadcrumbPath = [];
     if (loading){
-        return <div>Loading...</div>
+        return <Loader/>
+    }
+    if(hasError){
+        return <ErrorPage/>
     }
     if (!media){
         return <NotFoundPage previousPage={"/medias"}/>

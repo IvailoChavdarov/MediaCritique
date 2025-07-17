@@ -8,6 +8,8 @@ import Breadcrumb from '../Breadcrumb/Breadcrumb';
 import { TbInfoSquareRoundedFilled } from "react-icons/tb";
 import ShareButtons from '../ShareButtons/ShareButtons';
 import NotFoundPage from '../NotFoundPage/NotFoundPage';
+import ErrorPage from '../ErrorPage/ErrorPage';
+import Loader from '../Loader/Loader';
 
 export default function FrequentLieDetailsPage(){
 
@@ -15,35 +17,39 @@ export default function FrequentLieDetailsPage(){
     const [lieId] = compoundId.split('-');
     const [lieDetails, setLieDetails] = useState(null);
     const [loading, setLoading] = useState(true);
-
+    const [hasError, setHasError] = useState(false);
     useEffect(() => {
         const fetchLie = async () => {
         try {
             const docRef = doc(db, "lies", lieId);
             const docSnap = await getDoc(docRef);
-            
             if (docSnap.exists()) {
                 const data = docSnap.data();
                 setLieDetails({ 
                     id: docSnap.id,
-                    ...data });
-            } else {
-                // TODO: 404 page
+                    ...data }
+                );
             }
-            } catch (error) {
-                // TODO: Error page
-            } finally {
-                setLoading(false);
-            }
+
+        } 
+        catch (error) {
+            setHasError(true)
+        } 
+        finally {
+            setLoading(false);
+        }
         };
         fetchLie();
     }, [lieId]);
 
     let breadcrumbPath = [];
     if (loading){
-        return <div>Loading...</div>
+        return <Loader/>
     }
-    if (!lieDetails || lieDetails === undefined){
+    if(hasError){
+        return <ErrorPage/>
+    }
+    if (!lieDetails){
         return <NotFoundPage previousPage={"/lies"}/>
     }
     else{
