@@ -5,6 +5,7 @@ import { doc, getDoc } from 'firebase/firestore';
 import Breadcrumb from '../Breadcrumb/Breadcrumb';
 import './MediaDetailsPage.scss'
 import { TbInfoSquareRoundedFilled } from "react-icons/tb";
+import NotFoundPage from '../NotFoundPage/NotFoundPage';
 
 export default function MediaDetailsPage(){
 
@@ -41,10 +42,12 @@ export default function MediaDetailsPage(){
     if (loading){
         return <div>Loading...</div>
     }
+    if (!media){
+        return <NotFoundPage previousPage={"/medias"}/>
+    }
     else{
         breadcrumbPath = [{name:"Начало", url:"/"}, {name:"Медии", url:"/medias"}, {name:media.name}]
     };
-    if (!media) return <div>Article not found</div>;
 
 
 

@@ -1,0 +1,18 @@
+@use '../../styles/colors' as *;
+
+.not-found-page{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    max-width: 90vw;
+    margin: auto;
+    width: 1400px;
+    margin-top: 100px;
+    h1{
+        font-size: 15rem;
+        margin: 0;
+    }
+    h2{
+        font-size: 2rem;
+        margin-bottom: 40px;
+    }
+}

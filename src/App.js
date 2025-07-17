@@ -11,6 +11,7 @@ import ArticleDetailsPage from "./components/OpinionDetailsPage/OpinionDetailsPa
 import MediaDetailsPage from "./components/MediaDetailsPage/MediaDetailsPage";
 import FrequentLiesPage from "./components/FrequentLiesPage/FrequentLiesPage";
 import FrequentLieDetailsPage from "./components/FrequentLieDetailsPage/FrequentLieDetailsPage";
+import NotFoundPage from "./components/NotFoundPage/NotFoundPage";
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
             <Route path="/medias" element={<MediasPage/>}></Route>
             <Route path="/medias/:compoundId" element={<MediaDetailsPage />} />
             <Route path="/about" element={<h1>За нас</h1>}></Route>
+            <Route path='*' element={<NotFoundPage />} />
         </Routes>
       </BrowserRouter>
   );

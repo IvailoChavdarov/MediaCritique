@@ -7,6 +7,7 @@ import '../../styles/shared/detailsPage.scss'
 import { TbInfoSquareRoundedFilled } from "react-icons/tb";
 import Breadcrumb from '../Breadcrumb/Breadcrumb';
 import ShareButtons from '../ShareButtons/ShareButtons';
+import NotFoundPage from '../NotFoundPage/NotFoundPage';
 
 export default function OpinionDetailsPage(){
 
@@ -44,10 +45,13 @@ export default function OpinionDetailsPage(){
     if (loading){
         return <div>Loading...</div>
     }
+    if (!article) {
+        return <NotFoundPage previousPage={"/opinions"}/>
+    }
     else{
         breadcrumbPath = [{name:"Начало", url:"/"}, {name:"Мнения", url:"/opinions"}, {name:article.title}]
     };
-    if (!article) return <div>Article not found</div>;
+    
 
 
 

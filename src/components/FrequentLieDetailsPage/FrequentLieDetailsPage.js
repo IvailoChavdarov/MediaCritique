@@ -7,6 +7,7 @@ import Breadcrumb from '../Breadcrumb/Breadcrumb';
 
 import { TbInfoSquareRoundedFilled } from "react-icons/tb";
 import ShareButtons from '../ShareButtons/ShareButtons';
+import NotFoundPage from '../NotFoundPage/NotFoundPage';
 
 export default function FrequentLieDetailsPage(){
 
@@ -42,12 +43,12 @@ export default function FrequentLieDetailsPage(){
     if (loading){
         return <div>Loading...</div>
     }
+    if (!lieDetails || lieDetails === undefined){
+        return <NotFoundPage previousPage={"/lies"}/>
+    }
     else{
         breadcrumbPath = [{name:"Начало", url:"/"}, {name:"Често срещани лъжи", url:"/lies"}, {name:lieDetails.title}]
     };
-    if (!lieDetails) return <div>Data for lie not found</div>;
-
-
 
     return (
         <div className="article-details">
