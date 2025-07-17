@@ -38,7 +38,7 @@ export default function TopNav(){
                 <div className="center">
                     <NavLink to="/opinions">Мнения</NavLink>
                     <NavLink to="/medias">Медии</NavLink>
-                    <NavLink to="/frequent">Често срещани лъжи</NavLink>
+                    <NavLink to="/lies">Често срещани лъжи</NavLink>
                     <NavLink to="/about">За нас</NavLink>
                 </div>
                 <div>

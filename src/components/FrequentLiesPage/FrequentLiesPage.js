@@ -1,11 +1,11 @@
 import { db } from "../../firebase";
 import { collection, getDocs } from "firebase/firestore";
 import { useEffect, useState } from "react";
-import { transliterateDate } from "../../utils/transliterate";
 import ArticlesGrid from '../ArticlesGrid/ArticlesGrid'
-import './OpinionsPage.scss'
+import SuggestionCarusel from "../SuggestionCarusel/SuggestionCarusel";
+import './FrequentLiesPage.scss'
 
-export default function OpinionsPage(){
+export default function FrequentLiesPage(){
     const [data, setData] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState(null);
@@ -13,10 +13,9 @@ export default function OpinionsPage(){
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const querySnapshot = await getDocs(collection(db, "opinions"));
+                const querySnapshot = await getDocs(collection(db, "lies"));
                 const articles = querySnapshot.docs.map(doc => ({
                     id: doc.id,
-                    date: transliterateDate(doc.data().datePosted.toDate().toDateString()),
                     ...doc.data()
                 }));
                 setData(articles);
@@ -27,7 +26,6 @@ export default function OpinionsPage(){
                 setIsLoading(false);
             }
         };
-
         fetchData();
     }, []);
 
@@ -36,9 +34,16 @@ export default function OpinionsPage(){
 
 
     return(
-      <div className="opinions-container">
-        <h1>Вижте нашето мнение за:</h1>
-        {isLoading? <span>Loading...</span> : <ArticlesGrid articles={data} category={"opinions"}/>}
-      </div>  
+        <>
+        <div className="opinions-container">
+            <h1>Често срещани лъжи</h1>
+            <h2>Лъжите, които чуваме всеки ден и съзнателно или несъзнателно ни влияят.</h2>
+            {isLoading? <span>Loading...</span> : <ArticlesGrid articles={data} category={"lies"}/>}
+        </div>  
+        <div className="suggestion-section">
+            <h3>За да се информирате, препоръчваме да следите:</h3>
+            <SuggestionCarusel/>
+        </div>
+        </>
     )
 }

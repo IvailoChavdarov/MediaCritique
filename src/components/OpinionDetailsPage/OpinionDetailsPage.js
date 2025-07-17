@@ -3,13 +3,13 @@ import { useEffect, useState } from 'react';
 import { db } from '../../firebase';
 import { doc, getDoc } from 'firebase/firestore';
 import { transliterateDate } from "../../utils/transliterate";
-import './ArticleDetailsPage.scss'
+import './OpinionDetailsPage.scss'
 import { FaFacebookF, FaLinkedinIn, FaEnvelope, FaCopy } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import { TbInfoSquareRoundedFilled } from "react-icons/tb";
 import Breadcrumb from '../Breadcrumb/Breadcrumb';
 
-export default function ArticleDetailsPage(){
+export default function OpinionDetailsPage(){
 
     const { compoundId } = useParams();
 

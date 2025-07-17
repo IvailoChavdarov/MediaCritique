@@ -5,13 +5,27 @@
     margin:auto;
     min-height: 150vh;
     .reference-list-container{
-        margin:50px;
+        margin:10px;
+        max-width: 90vw;
+        ul{
+            padding: 0;
+        }
+        @media (max-width:768px) {
+            display: inline;
+            margin: 0;
+            h2, ul{
+                padding: 15px;
+            }
+        }
     }
 }
 .media-details{
     margin: 50px 0;
     display: flex;
     gap:30px;
+    @media (max-width:768px) {
+        flex-wrap: wrap;
+    }
     a{
         color:$primary-color;
         text-decoration: none;
@@ -109,6 +123,9 @@
             border-left: 3px solid rgba($text-color, 0.6);
             padding-left: 20px;
             text-align: left;
+        }
+        @media (max-width:768px) {
+            padding: 15px;
         }
     }
 }

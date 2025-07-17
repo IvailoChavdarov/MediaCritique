@@ -1,0 +1,25 @@
+@use '../../styles/colors' as *;
+@use '../../styles/timings' as *;
+.opinions-container{
+    h1, h2{
+        text-align: center;
+    }
+    h2{
+        margin: 70px 20px;
+        margin-top: 0px;
+    }
+}
+.suggestion-section{
+    background-color: $background-color-dark;
+    color: $text-color-light;
+    padding: 100px 150px;
+    margin: auto;
+    margin-top:150px;
+    h3, .carusel-indicators{
+        margin: auto;
+        max-width: 1700px;
+    }
+    h3{
+        font-size: xx-large;
+    }
+}
