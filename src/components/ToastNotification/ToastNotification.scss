@@ -1,0 +1,52 @@
+@use '../../styles/colors' as *;
+$time-to-close: 0.5s; 
+.toast-notification{
+    position: fixed;
+    right: -300px;
+    color: white;
+    top:80vh;
+    display: inline-block;
+    width: 300px;
+    padding: 10px 30px;
+    border-radius: 5px;
+    z-index: 99;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    cursor: pointer;
+    animation: 
+        popUp 0.5s ease-out forwards,
+        popUp 0.5s ease-in 8s reverse forwards;
+    &.closing{
+        animation: remove $time-to-close forwards;
+    }
+    background-color: $primary-color;
+    &.failue{
+        background-color: $danger-color;
+    }
+    &.success{
+        background-color: $success-color;
+    }
+
+    svg{
+        font-size: 3rem;
+    }
+
+}
+@keyframes popUp {
+    from{
+        right: -500px;
+    }
+    to{
+        right: 20px;
+    }
+}
+@keyframes remove{
+    from{
+        right: 20px;
+    }
+    to{
+        right: -500px;
+    }
+}
