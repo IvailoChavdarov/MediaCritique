@@ -26,19 +26,28 @@
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    padding: 6rem;
+    padding: 5vw;
     height: 800px;
     &-explain{
         width: 45%;
+        @media (max-width:678px) {
+            width: 100%;
+        }
         color: $background-color;
         h1{
             font-weight: 900;
             font-size: 4rem;
             margin-top: 0;
+            @media (max-width:678px) {
+                font-size: 2rem;
+            }
         }
         h2{
             opacity: 0.8;
             font-size: 2rem;
+            @media (max-width:678px) {
+                font-size: 1.5rem;
+            }
         }
     }
     &-form-container{
@@ -46,6 +55,10 @@
         padding:70px;
         border-radius: 5px;
         box-shadow: 0 8px 15px rgba(160, 170, 188, .45);
+        max-width: 75vw;
+        @media (max-width:678px) {
+            padding: 25px;
+        }
         h3{
             font-size: 1.5rem;
             margin: 0;
@@ -54,14 +67,18 @@
     }
 }
 .report-form{
-    min-width: 550px;
-    max-width: 90vw;
+    min-width: 500px;
+    @media (max-width:500px) {
+        min-width: 100%;
+        max-width: 100%;
+    }
     input, textarea{
         font-size: larger;
         background-color: $background-color;
         border: none;
         border-bottom: 2px solid $text-color;
         transition: all .15s;
+
         &:focus{
             outline: none;
             border-bottom: 2px solid $primary-color;
@@ -93,6 +110,7 @@
         input{
             width: 100%;
             line-height: 2rem;
+            max-width: 70vw;
         }
 
     }
@@ -100,9 +118,13 @@
         height: 300px;
         padding-bottom: 3rem;
         textarea{
-            max-width: 524px;
-            min-width: 524px;
+            min-width: 474px;
+            max-width: 474px;
             max-height: 250px;
+            @media (max-width:474px) {
+                min-width: 100%;
+                max-width: 100%;
+            }
         }
     }
     .call-to-action-button{
