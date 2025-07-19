@@ -6,6 +6,7 @@ import SuggestionCarusel from "../SuggestionCarusel/SuggestionCarusel";
 import './FrequentLiesPage.scss'
 import ErrorPage from "../ErrorPage/ErrorPage";
 import Loader from "../Loader/Loader";
+import FrequentLiesBanner from "../FrequentLiesBanner/FrequentLiesBanner";
 
 export default function FrequentLiesPage(){
     const [data, setData] = useState([]);
@@ -37,10 +38,9 @@ export default function FrequentLiesPage(){
 
     return(
         <>
+            <FrequentLiesBanner/>
             <div className="opinions-container">
-                <h1>Често срещани лъжи</h1>
-                <h2>Лъжите, които чуваме всеки ден и съзнателно или несъзнателно ни влияят.</h2>
-                {isLoading? <span>Loading...</span> : <ArticlesGrid articles={data} category={"lies"}/>}
+                <ArticlesGrid articles={data} category={"lies"}/>
             </div>  
             <div className="suggestion-section">
                 <h3>За да се информирате, препоръчваме да следите:</h3>

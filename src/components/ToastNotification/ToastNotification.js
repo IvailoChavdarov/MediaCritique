@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react"
+import { useEffect, useState } from "react"
 import './ToastNotification.scss'
 import { MdOutlineDangerous } from "react-icons/md";
 import { FaCheck, FaInfo  } from "react-icons/fa";
