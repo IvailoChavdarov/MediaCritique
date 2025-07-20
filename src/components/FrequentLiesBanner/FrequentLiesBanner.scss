@@ -2,6 +2,12 @@
 .lies-banner{
     height: 800px;
     margin-bottom: 100px;
+    padding-bottom: 20px;
+    .bg{
+        position: absolute;
+        z-index: 0;
+        // height: 800px;
+    }
     .banner-background {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
@@ -22,7 +28,7 @@
     .banner-titles{
         position: relative;
         text-align: left;
-        top:20%;
+        top:30%;
         color: $text-color;
         width: 1400px;
 

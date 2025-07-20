@@ -13,25 +13,28 @@ import FrequentLiesPage from "./components/FrequentLiesPage/FrequentLiesPage";
 import FrequentLieDetailsPage from "./components/FrequentLieDetailsPage/FrequentLieDetailsPage";
 import NotFoundPage from "./components/NotFoundPage/NotFoundPage";
 import ReportPage from "./components/ReportPage/ReportPage";
+import Footer from "./components/Footer/Footer";
 
 function App() {
   return (
-      <BrowserRouter>
-        <TopNav/>
-        <Routes>
-            <Route path="/" element={<HomePage/>} /* Design idea: https://www.stayfocusd.com https://www.joinhoney.com https://nordvpn.com/ *//>
-            <Route path="/download" element={<h1 className="text-center">Изтегли</h1>} /* Design idea: https://codepen.io/alexandro_lebrucho/pen/zxxOyYQ *//>
-            <Route path="/lies" element={<FrequentLiesPage/>} />
-            <Route path="/lies/:compoundId" element={<FrequentLieDetailsPage />} />
-            <Route path="/opinions" element={<OpinionsPage/>} />
-            <Route path="/opinions/:compoundId" element={<ArticleDetailsPage />} />
-            <Route path="/medias" element={<MediasPage/>}></Route>
-            <Route path="/medias/:compoundId" element={<MediaDetailsPage />} />
-            <Route path="/about" element={<h1>За нас</h1>}></Route>
-            <Route path="/report" element={<ReportPage/>}></Route>
-            <Route path='*' element={<NotFoundPage />} />
-        </Routes>
-      </BrowserRouter>
+        <BrowserRouter>
+          <TopNav/>
+          <Routes>
+              <Route path="/" element={<HomePage/>} /* Design idea: https://www.stayfocusd.com https://www.joinhoney.com https://nordvpn.com/ *//>
+              <Route path="/download" element={<h1 className="text-center">Изтегли</h1>} /* Design idea: https://codepen.io/alexandro_lebrucho/pen/zxxOyYQ *//>
+              <Route path="/lies" element={<FrequentLiesPage/>} />
+              <Route path="/lies/:compoundId" element={<FrequentLieDetailsPage />} />
+              <Route path="/opinions" element={<OpinionsPage/>} />
+              <Route path="/opinions/:compoundId" element={<ArticleDetailsPage />} />
+              <Route path="/medias" element={<MediasPage/>}></Route>
+              <Route path="/medias/:compoundId" element={<MediaDetailsPage />} />
+              <Route path="/about" element={<h1>За нас</h1>}></Route>
+              <Route path="/report" element={<ReportPage/>}></Route>
+              <Route path='*' element={<NotFoundPage />} />
+          </Routes>
+          <Footer/>
+        </BrowserRouter>
+      
   );
 }
 

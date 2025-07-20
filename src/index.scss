@@ -3,6 +3,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
 //big text font idea: underwave
+html{
+    overflow-x: hidden;
+    max-width: 100vw;
+}
 body{
     background-color: $background-color;
     color: $text-color;
@@ -13,6 +17,15 @@ body{
     margin: 0;
     width: 100vw;
     overflow-x: hidden;
+    position: relative;
+    padding-bottom: 870px; // place for footer
+    min-height: 100vh;
+    @media (max-width:1200px) {
+        padding-bottom: 1800px;
+    }
+    @media (max-width:392px) {
+        padding-bottom: 2200px;
+    }
 }
 @media (max-width: 768px) {
     body{

@@ -1,0 +1,234 @@
+@use '../../styles/colors' as *;
+@use '../../styles/timings' as *;
+.page-footer{
+    position: absolute;
+    bottom: 0;
+    background-color: $background-color-dark;
+    color: $text-color-light;
+    padding-top: 40px;
+    padding-bottom: 5rem;
+    overflow: hidden;
+    border-top: 3px solid rgba($background-color, 0.5);
+    &::after{
+        font-family: "Font Awesome 6 Free";
+        font-weight: 900;
+        content: '\f3c9';
+        position: absolute;
+        right: 35px;
+        bottom: 52px;
+        font-size: 200px;
+        z-index: 1;
+        color: $accent-color;
+    }
+    &::before{
+        font-family: "Font Awesome 6 Free";
+        font-weight: 900;
+        content: '\f0e7';
+        position: absolute;
+        right: -65px;
+        bottom: -40px;
+        font-size: 400px;
+        z-index: 0;
+        color: darken($background-color-dark, 6);
+    }
+    @media (max-width:1200px) {
+        &::before, &::after{
+            display: none;
+        }
+    }
+    .footer-contacts{
+        display: flex;
+        width: 100%;
+        @media (max-width:1200px) {
+            flex-wrap: wrap-reverse;
+        }
+    }
+    .contact-form-container, .contact-data{
+        flex: 1 1 0%; 
+        width: 50vw;
+        @media (max-width:1200px) {
+            min-width: 100vw;
+            padding: 0 5vw;
+        }
+    }
+    .footer-label{
+        position: absolute;
+        width: 100vw;
+        bottom: 0;
+        text-align: center;
+        background-color: darken($background-color-dark, 8);
+        padding: 15px 0;
+        margin: 0;
+        color: rgba($background-color, 0.6);
+        z-index: 2;
+    }
+    h3{
+        margin-left: 5vw;
+    }
+}
+
+$input-height: 2.5rem;
+.contact-form{
+    display: grid;
+    margin-left: 1vw;
+    width: 600px;
+    max-width: 90vw;
+    .user-contacts{
+        display: flex;
+        gap: 30px;
+        div{
+            display: inline-block;
+            flex-basis: 100%;
+            margin: 0;
+        }
+        @media (max-width:678px) {
+            flex-wrap: wrap;
+        }
+        @media (min-width:1200px) {
+            input{
+                max-width: 20vw;
+            }
+        }
+    }
+    @media (min-width:1300px) {
+        margin-left: 5vw;
+    }
+    label{
+        margin-bottom: 20px;
+        font-size: medium;
+        position: absolute;
+        color: $background-color;
+        line-height: $input-height;
+        padding-left: 10px;
+        z-index: 0;
+        pointer-events: none;
+        transition: all .3s;
+        .required-indicator{
+            color: $danger-color;
+        }
+    }
+    .error{
+        position: absolute;
+        color: $danger-color;
+        &::after{
+            content: '*';
+            margin-left: 5px;
+        }
+    }
+    input{
+        line-height: $input-height;
+        width: 100%;
+        color: $background-color;
+        font-size: large;
+        border: none;
+        padding-left: 10px;
+        max-width: 45vw;
+        @media (max-width:1200px) {
+            max-width: 85vw;
+        }
+        transition: all .3s;
+        &:focus{
+            outline: none;
+        }
+        background-color: lighten($background-color-dark, 5);
+    }
+    textarea{
+        width: 100%;
+        background-color: lighten($background-color-dark, 5);
+        font-size: large;
+        color: $background-color;
+        min-width: 600px;
+        max-width: 600px;
+        min-height: 300px;
+        max-height: 300px;
+        @media (max-width:1200px) {
+            min-width: 85vw;
+            max-width: 85vw;
+        }
+    }
+    input:focus{
+        background-color: lighten($background-color-dark, 20);
+    }
+    div:has(>input.active), div:has(>input:focus){
+        label{
+            color: $accent-color;
+            top:-60%;
+            line-height: 1rem;
+        }
+    }
+    div:has(>textarea:focus), div:has(>textarea.active){
+        label{
+            color: $accent-color;
+            top:-2rem;
+            line-height: 1rem;
+        }
+    }
+    div{
+        margin: 25px 0;
+        position: relative;
+    }
+    .call-to-action-button{
+        box-shadow: none;
+        cursor: pointer;
+        width: 50%;
+        font-size: large;
+        border-radius: 0;
+    }
+}
+
+.contact-data{
+    h3{
+        margin-left: 0;
+    }
+    ul, p{
+        padding:0 1vw;
+        max-width: 700px;
+        list-style: none;
+        margin-bottom: 40px;
+    }
+    li{
+        position: relative;
+        margin-left: 30px;
+        font-size: 1.05rem;
+        margin-bottom: 20px;
+        border-left: 2px solid $accent-color;
+        padding-left: 10px;
+        svg{
+            position: absolute;
+            left: -40px;
+            font-size: x-large;
+            color: $accent-color;
+            top:50%;
+            transform: translateY(-50%);
+        }
+        @media (max-width:678px) {
+            padding-right: 15vw;
+        }
+    }
+    .contact-socials{
+        margin-top: 50px;
+        display: flex;
+        width: 300px;
+        justify-content: space-between;
+        align-items: center;
+        margin-left: 5px;
+        a{
+            color: $accent-color;
+            border-radius: 50%;
+            width: 45px;
+            height: 45px;
+            background-color: darken($background-color-dark, 5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: larger;
+            border:3px solid transparent;
+            box-shadow: 0 0 5px transparent;
+            transition: all $time-hover-response;
+            &:hover{
+                border-color: $accent-color;
+                box-shadow: 0 0 25px $accent-color;
+            }
+        }
+    }
+}

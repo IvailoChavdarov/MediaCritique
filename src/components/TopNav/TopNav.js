@@ -2,6 +2,7 @@ import { NavLink } from "react-router-dom";
 import './TopNav.scss'
 import { useRef, useState, useEffect } from "react";
 import { useLocation } from 'react-router-dom';
+import { scrollToTop } from "../../utils/scrollToTop";
 
 export default function TopNav(){
     //gets browser name to show in call-to-action button for download
@@ -31,19 +32,19 @@ export default function TopNav(){
         <div className={`top-navigation ${isFixed ? 'fixed' : ''} ${isOpen ? 'open' : ''}`}>
             <nav>
                 <div>
-                    <NavLink className="nav-brand" to="/"><img src="/images/logo3.png" alt="MediaCritique"/></NavLink>
+                    <NavLink className="nav-brand" to="/" onClick={scrollToTop}><img src="/images/logo3.png" alt="MediaCritique"/></NavLink>
                     <button className="menu-toggle" onClick={() => setIsOpen(!isOpen)}> {isOpen ? '×' : '☰'} </button>
 
                 </div>
                 <div className="center">
-                    <NavLink to="/opinions">Мнения</NavLink>
-                    <NavLink to="/medias">Медии</NavLink>
-                    <NavLink to="/lies">Често срещани лъжи</NavLink>
-                    <NavLink to="/about">За нас</NavLink>
+                    <NavLink to="/opinions" onClick={scrollToTop}>Мнения</NavLink>
+                    <NavLink to="/medias" onClick={scrollToTop}>Медии</NavLink>
+                    <NavLink to="/lies" onClick={scrollToTop}>Често срещани лъжи</NavLink>
+                    <NavLink to="/about" onClick={scrollToTop}>За нас</NavLink>
                 </div>
                 <div>
-                    <NavLink to="/report">Сигнализирай</NavLink>
-                    <NavLink to="/download" className="call-to-action-button">Добави към {browserName.current === "?"? "Браузър" : browserName.current }</NavLink>
+                    <NavLink to="/report" onClick={scrollToTop}>Сигнализирай</NavLink>
+                    <NavLink to="/download" className="call-to-action-button" onClick={scrollToTop}>Добави към {browserName.current === "?"? "Браузър" : browserName.current }</NavLink>
                 </div>
             </nav>
         </div>

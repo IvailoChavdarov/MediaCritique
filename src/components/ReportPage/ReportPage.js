@@ -48,7 +48,8 @@ export default function ReportPage(){
         //   recaptchaRef.current.reset();
         //   setCaptchaVerified(false);
 
-    } catch (error) {
+    }
+    catch (error) {
         setRequestState({state: "failure", message:"Сигналът не беше изпратен успешно!"})
     }
     finally{

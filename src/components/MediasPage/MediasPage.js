@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router";
 import { slugify } from "../../utils/slugify";
 import { transliterate } from "../../utils/transliterate";
+import { scrollToTop } from "../../utils/scrollToTop";
 import { IoIosArrowForward } from "react-icons/io";
 import './MediasPage.scss';
 import ErrorPage from "../ErrorPage/ErrorPage";
@@ -71,7 +72,7 @@ export default function MediasPage() {
             <ul className="medias-list">
                 {data.map((media) => (
                     <li key={media.id}>
-                        <Link to={`/medias/${media.id}-${slugify(transliterate(media.name))}`} className="medias-list-item">
+                        <Link to={`/medias/${media.id}-${slugify(transliterate(media.name))}`} onClick={scrollToTop} className="medias-list-item">
                             {media.imgUrl &&
                                 <div className="medias-list-item-image">
                                     <img src={media.imgUrl} alt="media logo" />
