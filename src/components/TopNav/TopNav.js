@@ -3,6 +3,7 @@ import './TopNav.scss'
 import { useRef, useState, useEffect } from "react";
 import { useLocation } from 'react-router-dom';
 import { scrollToTop } from "../../utils/scrollToTop";
+import Logo from "../Logo/Logo";
 
 export default function TopNav(){
     //gets browser name to show in call-to-action button for download
@@ -28,11 +29,12 @@ export default function TopNav(){
         setIsOpen(false);
     }, [location]);
 
+
     return(
         <div className={`top-navigation ${isFixed ? 'fixed' : ''} ${isOpen ? 'open' : ''}`}>
             <nav>
                 <div>
-                    <NavLink className="nav-brand" to="/" onClick={scrollToTop}><img src="/images/logo3.png" alt="MediaCritique"/></NavLink>
+                    <NavLink className="nav-brand" to="/" onClick={scrollToTop}><Logo width={"230px"}/></NavLink>
                     <button className="menu-toggle" onClick={() => setIsOpen(!isOpen)}> {isOpen ? '×' : '☰'} </button>
 
                 </div>

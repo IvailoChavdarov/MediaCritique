@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { IoIosArrowForward } from "react-icons/io";
+import { scrollToTop } from "../../utils/scrollToTop";
 import './Breadcrumb.scss'
 export default function Breadcrumb({path}){
     console.log(path)
@@ -11,7 +12,7 @@ export default function Breadcrumb({path}){
         <nav className='breadcrumb'>
             {pathActive.map((currentPath, i)=>(
                 <>
-                    <Link to={currentPath.url}>
+                    <Link to={currentPath.url} onClick={scrollToTop}>
                         {currentPath.name}
                     </Link>
                     <span className='separator'><IoIosArrowForward/></span>

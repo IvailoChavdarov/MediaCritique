@@ -9,6 +9,7 @@ import { IoIosArrowForward } from "react-icons/io";
 import './MediasPage.scss';
 import ErrorPage from "../ErrorPage/ErrorPage";
 import Loader from "../Loader/Loader";
+import MediasPageBanner from "../MediasPageBanner/MediasPageBanner";
 
 export default function MediasPage() {
     const [data, setData] = useState([]);
@@ -67,34 +68,37 @@ export default function MediasPage() {
     if (isLoadingInitial) return <Loader/>;
 
     return (
-        <div className="medias-list-container">
-            <h1>Въведена информация за медии:</h1>
-            <ul className="medias-list">
-                {data.map((media) => (
-                    <li key={media.id}>
-                        <Link to={`/medias/${media.id}-${slugify(transliterate(media.name))}`} onClick={scrollToTop} className="medias-list-item">
-                            {media.imgUrl &&
-                                <div className="medias-list-item-image">
-                                    <img src={media.imgUrl} alt="media logo" />
+        <>
+            <MediasPageBanner/>
+            <div className="medias-list-container">
+                <h1>Въведена информация за медии:</h1>
+                <ul className="medias-list">
+                    {data.map((media) => (
+                        <li key={media.id}>
+                            <Link to={`/medias/${media.id}-${slugify(transliterate(media.name))}`} onClick={scrollToTop} className="medias-list-item">
+                                {media.imgUrl &&
+                                    <div className="medias-list-item-image">
+                                        <img src={media.imgUrl} alt="media logo" />
+                                    </div>
+                                }
+                                <div className="medias-list-item-info">
+                                    <h3>{media.name}</h3>
+                                    <p>{media.note}</p>
                                 </div>
-                            }
-                            <div className="medias-list-item-info">
-                                <h3>{media.name}</h3>
-                                <p>{media.note}</p>
-                            </div>
-                            <span className="call-to-action-text">Прочетете повече <IoIosArrowForward /></span>
-                        </Link>
-                    </li>
-                ))}
-            </ul>
+                                <span className="call-to-action-text">Прочетете повече <IoIosArrowForward /></span>
+                            </Link>
+                        </li>
+                    ))}
+                </ul>
 
-            {hasMore && (
-                <div className="load-more-container">
-                    <button onClick={() => loadMedias()} disabled={loading} className="load-more-button">
-                        {loading ? "Зареждане..." : "Зареди още"}
-                    </button>
-                </div>
-            )}
-        </div>
+                {hasMore && (
+                    <div className="load-more-container">
+                        <button onClick={() => loadMedias()} disabled={loading} className="load-more-button">
+                            {loading ? "Зареждане..." : "Зареди още"}
+                        </button>
+                    </div>
+                )}
+            </div>
+        </>
     );
 }

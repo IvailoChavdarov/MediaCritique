@@ -2,6 +2,8 @@ import './HomeHero.scss'
 import { FaDownload, FaFlag } from "react-icons/fa";
 import { Link } from "react-router";
 import NewsImage from './images/hero-laptop.png'
+import NewsImage1 from './images/hero-1.jpeg'
+import NewsImag2 from './images/3.png'
 export default function HomeBanner(){
     return(
     <section className="hero-section">
@@ -22,7 +24,7 @@ export default function HomeBanner(){
         </div>
       </div>
       <div className='hero-image-container'>
-              <img src={NewsImage} className='hero-image' alt='news'/>
+              <img src={NewsImag2} className='hero-image' alt='news'/>
       </div>
     </section>
     )
