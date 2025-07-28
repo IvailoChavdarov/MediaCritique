@@ -9,6 +9,7 @@ import Loader from "../Loader/Loader";
 import { useState } from "react";
 import './ReportPage.scss'
 import ToastNotification from "../ToastNotification/ToastNotification";
+import ReportPageExplain from "../ReportPageExplain/ReportPageExplain";
 
 const reportSchema = yup.object({
   subject: yup.string().required("Темата е задължителна."),
@@ -114,6 +115,7 @@ export default function ReportPage(){
                 </div>
             </div>
         </div>
+        <ReportPageExplain/>
         {requestState && <ToastNotification state={requestState.state} text={requestState.message}/>}
         </>
     )

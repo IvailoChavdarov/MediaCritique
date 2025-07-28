@@ -1,0 +1,78 @@
+@use '../../styles/colors' as *;
+@import url('https://fonts.googleapis.com/css2?family=Sansation:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap');
+.page-explain{
+    max-width: 1400px;
+    margin:auto;
+    padding: 10px;
+    .page-explain-heading{
+        font-size: 2rem;
+        font-family: 'Sensation', 'Roboto';
+        font-style: italic;
+        margin-bottom: 0;
+    }
+    .page-explain-subheading{
+        opacity: 0.8;
+        font-weight: 400;
+    }
+}
+.explain-row {
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    gap: 100px; 
+    padding-top: 50px;
+    border-top: 3px solid $background-color;
+    min-height: 550px;
+    // &:first-of-type{
+    //     border-top: 0;
+    // }
+    @media (max-width:802px){
+        padding-top: 0;
+    } 
+    .explain-info {
+        flex: 6; 
+        @media (max-width:802px){
+            min-width: 90vw;
+        }    
+        padding:10px;
+        h3{
+            color: $primary-color;
+            margin-bottom: 30px;
+            font-size: xx-large;
+            font-family: 'Sensation', 'Roboto';
+            font-style: italic;
+        }
+        p{
+            font-size: larger;
+            line-height: 1.4;
+            margin-top: 40px;
+        }
+    }
+    .explain-image {
+        flex: 4;
+        min-width: 0; 
+        @media (max-width:802px){
+            order:2;
+        }    
+        svg {
+            max-width: 100%; 
+            position: relative;
+        }
+        div{
+            position: relative;
+            max-width: 450px;
+        }
+        div::before{
+            width: 100%;
+            aspect-ratio: 1/1;
+            content: '';
+            border-radius: 50%;
+            background-color: $background-color;
+            position: absolute;
+            @media (max-width: 802px){
+                top: 50%;
+                transform: translateY(-50%);
+            }
+        }
+    }
+}

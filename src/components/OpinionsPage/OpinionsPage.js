@@ -6,6 +6,7 @@ import ArticlesGrid from '../ArticlesGrid/ArticlesGrid'
 import './OpinionsPage.scss'
 import ErrorPage from "../ErrorPage/ErrorPage";
 import Loader from "../Loader/Loader";
+import OpinionsPageExplain from "../OpinionsPageExplain/OpinionsPageExplain";
 
 export default function OpinionsPage(){
     const [data, setData] = useState([]);
@@ -39,9 +40,12 @@ export default function OpinionsPage(){
     if (isLoading) return <Loader/>;
 
     return(
-      <div className="opinions-container">
-        <h1>Вижте нашето мнение за:</h1>
-        {isLoading? <span>Loading...</span> : <ArticlesGrid articles={data} category={"opinions"}/>}
-      </div>  
+        <>
+        <div className="opinions-container">
+            <h1>Вижте нашето мнение за:</h1>
+            {isLoading? <span>Loading...</span> : <ArticlesGrid articles={data} category={"opinions"}/>}
+        </div>
+        <OpinionsPageExplain/>
+        </>
     )
 }

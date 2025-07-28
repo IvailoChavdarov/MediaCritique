@@ -1,0 +1,23 @@
+@import url('../../styles/shared/suggestionsList.scss');
+.check-medias-content{
+    gap:25px;
+    margin-bottom: 50px;
+    .defence-suggestions-image{
+        svg{
+            width: 650px;
+            max-width: 90vw;
+            height: auto;
+            padding-top: 20px;
+        }
+    }
+    @media (max-width:1360px){
+        flex-direction: column-reverse;
+        align-items: center;
+        gap:10px;
+        svg{
+            max-width: 90vw;
+            height: auto;
+            margin: auto;
+        }
+    }
+}

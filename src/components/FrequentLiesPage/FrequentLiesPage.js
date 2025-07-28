@@ -7,6 +7,8 @@ import './FrequentLiesPage.scss'
 import ErrorPage from "../ErrorPage/ErrorPage";
 import Loader from "../Loader/Loader";
 import FrequentLiesBanner from "../FrequentLiesBanner/FrequentLiesBanner";
+import LiesCategories from "../LiesCategories/LiesCategories";
+import DefenceSuggestions from "../DefenceSuggestions/DefenceSuggestions";
 
 export default function FrequentLiesPage(){
     const [data, setData] = useState([]);
@@ -41,11 +43,13 @@ export default function FrequentLiesPage(){
             <FrequentLiesBanner/>
             <div className="opinions-container">
                 <ArticlesGrid articles={data} category={"lies"}/>
-            </div>  
+            </div>
+            <DefenceSuggestions/>
             <div className="suggestion-section">
                 <h3>За да се информирате, препоръчваме да следите:</h3>
                 <SuggestionCarusel/>
             </div>
+            <LiesCategories/>
         </>
     )
 }

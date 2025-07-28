@@ -1,0 +1,19 @@
+@import url('../../styles/shared/pageExplain.scss');
+
+.report-page-explain{
+    margin-top: 330px;
+}
+.explain-image{
+    .mailbox svg{
+        transform: scale(0.8);
+    }
+    .research svg{
+        transform: translateX(-10%);
+    }
+    .add svg{
+        transform: translateY(-10%);
+    }
+    .finish svg{
+        transform: translateY(-15%) scale(0.9);
+    }
+}

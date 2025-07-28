@@ -1,0 +1,79 @@
+@use '../../styles/colors' as *;
+@import url('https://fonts.googleapis.com/css2?family=Sansation:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap');
+.defence-suggestions{
+    max-width: 1400px;
+    margin: auto;
+}
+.defence-suggestions-content{
+    display: flex;
+    gap:100px;
+    @media (max-width:1024px){
+        flex-direction: column-reverse;
+        align-items: center;
+        gap:10px;
+        img{
+            max-width: 70vw;
+            margin: auto;
+        }
+    }
+    .call-to-action-button{
+        margin:20px;
+        padding:10px 15px;
+        display: flex;
+        width: 450px;
+        text-align: left;
+        align-items: center;
+        font-size: larger;
+        gap: 10px;
+        margin-top: 30px;
+        max-width: 80vw;
+        svg{
+            font-size: xx-large;
+        }
+    }
+}
+.defence-suggestions-list{
+    list-style: none;
+    padding-left: 20px;
+    font-size: large;
+    @media (max-width: 1450px){
+        padding-left: 40px;
+    }
+    a{
+        margin-left: .3rem;
+        color: $primary-color;
+        text-decoration: none;
+    }
+    li{
+        margin-bottom: 15px;
+        position: relative;
+        max-width: 85vw;
+        svg{
+            position: absolute;
+            left:-36px;
+            font-size: 1.7rem;
+            color:$success-color;
+            top:0;
+        }
+        b{
+            font-weight: 600;
+        }
+    }
+}
+.defence-heading{
+    text-align: left;
+    font-size: xx-large;
+    font-family: 'Sensation', 'Roboto';
+    font-style: italic;
+    margin-top: 80px;
+    margin-bottom: 10px;
+    padding: 10px;
+}
+.defence-subheading{
+    margin: auto;
+    opacity: 0.8;
+    font-weight: 400;
+    font-size: large;
+    margin-bottom: 20px;
+    padding: 10px;
+}

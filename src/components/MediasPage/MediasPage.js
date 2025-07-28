@@ -10,6 +10,7 @@ import './MediasPage.scss';
 import ErrorPage from "../ErrorPage/ErrorPage";
 import Loader from "../Loader/Loader";
 import MediasPageBanner from "../MediasPageBanner/MediasPageBanner";
+import CheckMediasSuggestions from "../CheckMediaSuggestions/CheckMediasSuggestions";
 
 export default function MediasPage() {
     const [data, setData] = useState([]);
@@ -99,6 +100,7 @@ export default function MediasPage() {
                     </div>
                 )}
             </div>
+            <CheckMediasSuggestions/>
         </>
     );
 }

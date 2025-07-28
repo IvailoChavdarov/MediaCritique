@@ -21,6 +21,9 @@
         left: -5vw;
         z-index: -1;
     }
+    @media (max-width:1310px) {
+        height: fit-content;
+    }
 }
 .report{
     display: flex;
@@ -28,6 +31,9 @@
     flex-wrap: wrap;
     padding: 5vw;
     height: 800px;
+    @media (max-width:1310px) {
+        height: fit-content;
+    }
     &-explain{
         width: 45%;
         @media (max-width:678px) {
