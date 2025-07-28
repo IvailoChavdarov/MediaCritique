@@ -3,6 +3,7 @@ import { RiShieldCheckLine, RiShieldFlashLine } from "react-icons/ri";
 import { Link } from 'react-router-dom';
 import checkingImg from './checking.svg'
 import { ReactSVG } from 'react-svg';
+import { scrollToTop } from "../../utils/scrollToTop";
 
 export default function CheckMediasSuggestions(){
     return(
@@ -52,7 +53,7 @@ export default function CheckMediasSuggestions(){
                             </div>
                         </li>
                     </ul>
-                    <Link to='/download' className='call-to-action-button'><RiShieldFlashLine/>MediaCritique е тук за да ви помогне!</Link>
+                    <Link to='/download' className='call-to-action-button' onClick={scrollToTop}><RiShieldFlashLine/>MediaCritique е тук за да ви помогне!</Link>
                 </div>
                 <div className='defence-suggestions-image'>
                     <ReactSVG src={

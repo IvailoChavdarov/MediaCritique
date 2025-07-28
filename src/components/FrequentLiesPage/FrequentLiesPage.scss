@@ -8,6 +8,14 @@
         margin: 70px 20px;
         margin-top: 0px;
     }
+    .load-more-container{
+        text-align: right;
+        padding: 30px;
+        button{
+            font-size: large;
+            cursor: pointer;
+        }
+    }
 }
 .suggestion-section{
     background-color: $background-color-dark;
