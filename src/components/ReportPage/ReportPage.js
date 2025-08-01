@@ -41,6 +41,7 @@ export default function ReportPage(){
       await addDoc(collection(db, "reports"), {
         ...data,
         timestamp: new Date(),
+        isDeleted:false
       });
       // TODO custom alert
       reset();

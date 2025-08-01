@@ -47,6 +47,7 @@ export default function Footer(){
             await addDoc(collection(db, "messages"), {
                 ...data,
                 timestamp: new Date(),
+                isDeleted:false
             });
             reset();
             setRequestState({state: "success", message:"Съобщението бе изпратено успешно!"})

@@ -50,6 +50,7 @@ body{
     font-weight: bold;
     text-align: center;
     transition: all $time-hover-response;
+    cursor: pointer;
     &:hover{
         background-color: darken($accent-color,5);
     }

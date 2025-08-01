@@ -1,0 +1,78 @@
+@use '../../styles/colors' as *;
+.mailbox{
+    max-width: 85%;
+    margin: auto;
+    margin-top: 50px;
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    border-radius: 5px;
+    border:1px solid rgba($text-color, 0.5);
+    overflow: hidden;
+}
+.mailbox-nav{
+    background-color: $primary-color;
+    padding: 15px;
+    height: 80vh;
+    h3{
+        padding: 10px;
+        margin:0;
+        padding-left: 0;
+        color: $background-color;
+    }
+    ul{
+        padding: 0;
+        list-style: none;
+        line-height: 2rem;
+        border-radius: 2px;
+        overflow: auto;
+        li{
+            padding: 7px;
+            cursor: pointer;
+            background-color: $background-color;
+            border-bottom: 1px solid rgba($text-color, 0.5);
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 1;
+            -webkit-box-orient: vertical;
+        }
+        .read{
+            background-color: white;
+        }
+        .active{
+            background-color: $accent-color;
+            color: white;
+        }
+    }
+}
+.message-content{
+    .message-title{
+        background-color: $background-color;
+        margin: 0;
+        line-height: 40px;
+        padding: 15px;
+        position: relative;
+        button{
+            position: absolute;
+            right: 30px;
+            color:$danger-color;
+            background-color: transparent;
+            border:none;
+            font-size: xx-large;
+            cursor: pointer;
+        }
+    }
+    .message-content{
+        padding: 30px;
+        padding-top:10px;
+        max-height: calc(80vh - 100px);
+        overflow-y: auto;
+    }
+}
+.select-default-svg{
+    svg{
+        max-width: 70%;
+    }
+    margin: auto;
+    text-align: center;
+}

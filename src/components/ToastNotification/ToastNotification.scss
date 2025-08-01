@@ -22,7 +22,7 @@ $time-to-close: 0.5s;
         animation: remove $time-to-close forwards;
     }
     background-color: $primary-color;
-    &.failue{
+    &.failure{
         background-color: $danger-color;
     }
     &.success{

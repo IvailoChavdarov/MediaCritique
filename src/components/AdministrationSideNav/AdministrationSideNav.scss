@@ -1,0 +1,74 @@
+@use '../../styles/colors' as *;
+.top-navigation:has(~.administration){
+    background-color: $background-color-dark;
+    position:relative;
+    a{
+        color: $background-color;
+    }
+    .call-to-action-button{
+        box-shadow: none;
+    }
+    .logo svg{
+        .logo-mic{
+            fill: $background-color;
+        }
+        text{
+            fill:$background-color;
+        }
+    }
+}
+.administration {
+  min-height: 100vh;
+}
+
+.administration-sidenav {
+  position: absolute;
+  top: 75px;
+  left: 0;
+  bottom: 0;
+  width: 270px;
+  background-color: $background-color-dark;
+  border-top: 2px solid rgba($background-color, 0.5);
+}
+
+.administration-content {
+  margin-left: 270px;
+  padding: 35px;
+  padding-top: 10px;
+}
+
+.sidenav-links{
+    padding-left: 20px;
+    list-style: none;
+    position: sticky;
+    top:0;
+    li{
+        line-height: 3.5rem;
+        font-size: larger;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        align-items: center;
+        gap:10px;
+        color: $accent-color;
+    }
+    a{
+        color: $background-color;
+        text-decoration: none;
+        font-size: large;
+        display: block;
+        padding-left: 10px;
+        border-top-left-radius: 5px;
+        border-bottom-left-radius: 5px;
+        flex-grow: 1;
+        font-weight: 500;
+        &:hover{
+            color: $primary-color;
+        }
+    }
+    .active{
+        color: $accent-color;
+        font-weight: 600;
+        // background-color: white;
+    }
+}
