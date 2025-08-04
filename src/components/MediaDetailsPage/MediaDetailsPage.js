@@ -87,7 +87,44 @@ export default function MediaDetailsPage(){
                         </ol>
                     </div>
                 </div>
-                <div className='media-details-content' dangerouslySetInnerHTML={{ __html: media.content }} />
+                <div className='media-details-content'>
+                    {media.history && 
+                        <>
+                        <h3>История</h3>
+                        <p dangerouslySetInnerHTML={{ __html:media.history}}/>
+                        </>
+                    }
+                    {media.financing && 
+                        <>
+                        <h3>Финансиране</h3>
+                        <p dangerouslySetInnerHTML={{ __html:media.financing}}/>
+                        </>
+                    }
+                    {media.owner && 
+                        <>
+                        <h3>Собственик</h3>
+                        <p dangerouslySetInnerHTML={{ __html:media.owner}}/>
+                        </>
+                    }
+                    {media.employees && 
+                        <>
+                        <h3>Водещи лица</h3>
+                        <p dangerouslySetInnerHTML={{ __html:media.employees}}/>
+                        </>
+                    }
+                    {media.doubts && 
+                        <>
+                        <h3>Съмнения</h3>
+                        <p dangerouslySetInnerHTML={{ __html:media.doubts}}/>
+                        </>
+                    }
+                    {media.scandals && 
+                        <>
+                        <h3>Скандали</h3>
+                        <p dangerouslySetInnerHTML={{ __html:media.scandals}}/>
+                        </>
+                    }
+                </div>
             </div>
             {media.references !== undefined ?
                     <div className='reference-list-container'>

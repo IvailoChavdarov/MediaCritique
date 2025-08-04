@@ -12,7 +12,7 @@ export default function AdministrationSideNav(){
     return(
         <nav className="administration-sidenav">
             <ul className="sidenav-links">
-                <li><FaTableColumns/><NavLink to='/cms/dashboard'>Табло</NavLink></li>
+                <li><FaTableColumns/><NavLink to='/dashboard'>Табло</NavLink></li>
                 <li><MdChatBubbleOutline/><NavLink to='/cms/opinions'>Мнения</NavLink></li>
                 <li><CgDanger/><NavLink to='/cms/frequent-lies'>Често срещани лъжи</NavLink></li>
                 <li><TfiLayoutMediaOverlay/><NavLink to='/cms/medias'>Медии</NavLink></li>

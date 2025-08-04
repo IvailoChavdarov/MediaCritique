@@ -24,7 +24,7 @@ export default function MessageList({messages, title, readMessage, deleteMessage
         deleteMessage(id)
     }
     return(
-        <div className="mailbox">
+        <div className="mailbox-container">
             <div className="mailbox-nav">
                 <h3>{title}:</h3>
                 <ul>

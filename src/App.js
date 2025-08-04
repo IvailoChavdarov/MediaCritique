@@ -21,6 +21,15 @@ import LoginPage from "./components/LoginPage/LoginPage";
 import AdministrationTemplate from "./components/AdministrationTemplate/AdministrationTemplate";
 import MessagesMailboxPage from "./components/MessagesMailboxPage/MessagesMailboxPage";
 import ReportsMailboxPage from "./components/ReportsMailboxPage/ReportsMailboxPage";
+import AddOpinionPage from "./components/AddOpinionPage/AddOpinionPage";
+import AddFrequentLiePage from "./components/AddFrequentLiePage/AddFrequentLiePage";
+import UpdateOpinionPage from "./components/UpdateOpinionPage/UpdateOpinionPage";
+import UpdateFrequentLiePage from "./components/UpdateFrequentLiePage/UpdateFrequentLiePage";
+import EditorsOpinionsListPage from "./components/EditorsOpinionsListPage/EditorsOpinionsListPage";
+import EditorFrequentLiesListPage from "./components/EditorsFrequentLiesListPage/EditorsFrequentLiesListPage";
+import EditorsMediasListPage from "./components/EditorsMediasListPage/EditorsMediasListPage";
+import AddMediaPage from "./components/AddMediaPage/AddMediaPage";
+import UpdateMediaPage from "./components/UpdateMediaPage/UpdateMediaPage";
 
 function App() {
   return (
@@ -40,16 +49,16 @@ function App() {
               <Route path="/login" element={<LoginPage/>}></Route>
               <Route element={<PrivateRoute/>}>
                 <Route element={<AdministrationTemplate/>}>
-                  <Route path="/cms/dashboard" element={<h1>Dashboard</h1>} />
-                  <Route path="/cms/opinions" element={<h1>Opinions</h1>} />
-                  <Route path="/cms/add/opinions" element={<h1>Add opinion</h1>} />
-                  <Route path="/cms/edit/opinions" element={<h1>Edit opinion</h1>} />
-                  <Route path="/cms/frequent-lies" element={<h1>Frequent lies</h1>} />
-                  <Route path="/cms/add/frequent-lies" element={<h1>Add frequent lie</h1>} />
-                  <Route path="/cms/edit/frequent-lies" element={<h1>Edit frequent lie</h1>} />
-                  <Route path="/cms/medias" element={<h1>Medias</h1>} />
-                  <Route path="/cms/add/medias" element={<h1>Add media</h1>} />
-                  <Route path="/cms/edit/medias" element={<h1>Edit media</h1>} />
+                  <Route path="/dashboard" element={<h1>Dashboard</h1>} />
+                  <Route path="/cms/opinions" element={<EditorsOpinionsListPage/>} />
+                  <Route path="/cms/add/opinions" element={<AddOpinionPage/>} />
+                  <Route path="/cms/edit/opinions/:id" element={<UpdateOpinionPage/>} />
+                  <Route path="/cms/frequent-lies" element={<EditorFrequentLiesListPage/>} />
+                  <Route path="/cms/add/frequent-lies" element={<AddFrequentLiePage/>} />
+                  <Route path="/cms/edit/frequent-lies/:id" element={<UpdateFrequentLiePage/>} />
+                  <Route path="/cms/medias" element={<EditorsMediasListPage/>} />
+                  <Route path="/cms/add/medias" element={<AddMediaPage/>} />
+                  <Route path="/cms/edit/medias/:id" element={<UpdateMediaPage/>} />
                   <Route path="/cms/messages" element={<MessagesMailboxPage/>} />
                   <Route path="/cms/reports" element={<ReportsMailboxPage/>} />
                   <Route element={<AdminRoute />}>

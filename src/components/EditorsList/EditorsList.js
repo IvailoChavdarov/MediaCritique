@@ -101,7 +101,7 @@ export default function EditorsList(){
     return(
         <>
         <h2>Регистрирани редактори:</h2>
-        <table className="editors-table">
+        <table className="cms-list-table">
             <thead>
                 <tr>
                     <td>
@@ -185,11 +185,11 @@ export default function EditorsList(){
             </tbody>
         </table>
         {requestState && (
-                <ToastNotification
-                  key={requestState.id}
-                  state={requestState.state}
-                  text={requestState.message}
-                />
+            <ToastNotification
+                key={requestState.id}
+                state={requestState.state}
+                text={requestState.message}
+            />
         )}
         </>
     )

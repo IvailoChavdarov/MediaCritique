@@ -1,5 +1,5 @@
 import { db } from "../../firebase";
-import { collection, getDocs, limit, query, startAfter } from 'firebase/firestore';
+import { collection, getDocs, limit, query, startAfter, where } from 'firebase/firestore';
 import { useEffect, useState } from "react";
 import { transliterateDate } from "../../utils/transliterate";
 import ArticlesGrid from '../ArticlesGrid/ArticlesGrid'
@@ -20,7 +20,7 @@ export default function OpinionsPage() {
     useEffect(() => {
         const fetchInitialData = async () => {
             try {
-                const firstPageQuery = query(collection(db, "opinions"), limit(pageSize));
+                const firstPageQuery = query(collection(db, "opinions"), where("isDeleted", "!=", true), limit(pageSize));
                 const documentSnapshots = await getDocs(firstPageQuery);
                 
                 const articles = documentSnapshots.docs.map(doc => ({
@@ -47,6 +47,7 @@ export default function OpinionsPage() {
         try {
             const nextPageQuery = query(
                 collection(db, "opinions"),
+                where("isDeleted", "!=", true),
                 startAfter(lastVisible),
                 limit(pageSize)
             );

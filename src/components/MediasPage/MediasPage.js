@@ -26,7 +26,6 @@ export default function MediasPage() {
         try {
             const baseQuery = query(
                 collection(db, "medias"),
-                where("parentMedia", "==", null),
                 ...(lastDoc ? [startAfter(lastDoc)] : []),
                 limit(pageSize)
             );

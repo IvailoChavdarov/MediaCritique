@@ -1,0 +1,87 @@
+@use '../../styles/colors' as *;
+@use '../../styles/timings' as *;
+$register-fields-rounding: 6px;
+$register-fields-border:1px solid rgba($background-color, 0.3);
+.top-navigation:has(~.login-page){
+    background-color: $background-color-dark;
+    position:relative;
+    a{
+        color: $background-color;
+    }
+    .call-to-action-button{
+        box-shadow: none;
+    }
+    .logo svg{
+        .logo-mic{
+            fill: $accent-color;
+        }
+        text{
+            fill:$background-color;
+        }
+    }
+}
+
+.login-page{
+    background-color: $background-color-dark;
+    height: 100vh;
+    padding: 70px;
+    .logo{
+        margin: auto;
+        .logo-mic{
+            fill: $accent-color;
+        }
+    }
+}
+.login-form-container{
+    width: 350px;
+    border-radius: 15px;
+    margin:auto;
+    padding: 10px;
+    color: $background-color;
+    h2{
+        text-align: center;
+    }
+    .login-button{
+        background-color: $success-color;
+        color: white;
+        width: 100%;
+        border: none;
+        line-height: 2rem;
+        font-size: larger;
+        padding: 5px;
+        cursor: pointer;
+        margin-top: 20px;
+        border-radius: $register-fields-rounding;
+        border: $register-fields-border;
+        transition: $time-hover-response;
+        &:focus{
+            outline: none;
+        }
+        &:hover{
+            background-color: darken($success-color, 5);
+        }
+    }
+    label{
+        display: block;
+        margin-top: 20px;
+        margin-bottom: 5px;
+    }
+    input{
+        display: block;
+        width: 100%;
+        line-height: 1.8rem;
+        background-color: $background-color-dark;
+        border-radius: $register-fields-rounding;
+        border: $register-fields-border;
+        color: $background-color;
+        font-size: large;
+        padding: 2px;
+        &:focus{
+            outline: 2px solid $primary-color;
+        }
+    }
+    .required-indicator{
+        color: $danger-color;
+        margin-left: 5px;
+    }
+}
