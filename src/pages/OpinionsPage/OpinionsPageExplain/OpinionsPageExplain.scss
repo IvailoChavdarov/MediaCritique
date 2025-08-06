@@ -1,0 +1,26 @@
+@use '../../../styles/colors' as *;
+@import url('../../../styles/shared/pageExplain.scss');
+
+.page-explain{
+    margin-top: 150px;
+}
+.page-explain-warning{
+    border-radius: 25px;
+    background-color: $background-color;
+    min-height: 0;
+    padding: 30px;
+    gap: 30px;
+    .explain-info{
+        flex: 10 1;
+    }
+    @media (max-width:802px){
+        padding: 0;
+    } 
+}
+.explain-image:has(>.warn-image){
+    flex: 3 1;
+    min-width: 200px;
+    div::before{
+        display: none;
+    }
+}

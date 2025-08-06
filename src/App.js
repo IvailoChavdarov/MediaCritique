@@ -4,32 +4,32 @@ import {
     Routes
 } from "react-router-dom";
 import TopNav from './components/TopNav/TopNav';
-import MediasPage from "./components/MediasPage/MediasPage";
-import HomePage from "./components/HomePage/HomePage";
-import OpinionsPage from "./components/OpinionsPage/OpinionsPage";
-import ArticleDetailsPage from "./components/OpinionDetailsPage/OpinionDetailsPage";
-import MediaDetailsPage from "./components/MediaDetailsPage/MediaDetailsPage";
-import FrequentLiesPage from "./components/FrequentLiesPage/FrequentLiesPage";
-import FrequentLieDetailsPage from "./components/FrequentLieDetailsPage/FrequentLieDetailsPage";
+import MediasPage from "./pages/MediasPage/MediasPage";
+import HomePage from "./pages/HomePage/HomePage";
+import OpinionsPage from "./pages/OpinionsPage/OpinionsPage";
+import ArticleDetailsPage from "./pages/OpinionDetailsPage/OpinionDetailsPage";
+import MediaDetailsPage from "./pages/MediaDetailsPage/MediaDetailsPage";
+import FrequentLiesPage from "./pages/FrequentLiesPage/FrequentLiesPage";
+import FrequentLieDetailsPage from "./pages/FrequentLieDetailsPage/FrequentLieDetailsPage";
 import NotFoundPage from "./components/NotFoundPage/NotFoundPage";
-import ReportPage from "./components/ReportPage/ReportPage";
+import ReportPage from "./pages/ReportPage/ReportPage";
 import Footer from "./components/Footer/Footer";
 import { PrivateRoute } from "./routes/PrivateRoute";
 import AdminRoute from "./routes/AdminRoute";
-import ManageUsersPage from "./components/ManageUsersPage/ManageUsersPage";
-import LoginPage from "./components/LoginPage/LoginPage";
-import AdministrationTemplate from "./components/AdministrationTemplate/AdministrationTemplate";
-import MessagesMailboxPage from "./components/MessagesMailboxPage/MessagesMailboxPage";
-import ReportsMailboxPage from "./components/ReportsMailboxPage/ReportsMailboxPage";
-import AddOpinionPage from "./components/AddOpinionPage/AddOpinionPage";
-import AddFrequentLiePage from "./components/AddFrequentLiePage/AddFrequentLiePage";
-import UpdateOpinionPage from "./components/UpdateOpinionPage/UpdateOpinionPage";
-import UpdateFrequentLiePage from "./components/UpdateFrequentLiePage/UpdateFrequentLiePage";
-import EditorsOpinionsListPage from "./components/EditorsOpinionsListPage/EditorsOpinionsListPage";
-import EditorFrequentLiesListPage from "./components/EditorsFrequentLiesListPage/EditorsFrequentLiesListPage";
-import EditorsMediasListPage from "./components/EditorsMediasListPage/EditorsMediasListPage";
-import AddMediaPage from "./components/AddMediaPage/AddMediaPage";
-import UpdateMediaPage from "./components/UpdateMediaPage/UpdateMediaPage";
+import ManageUsersPage from "./cms/ManageUsersPage/ManageUsersPage";
+import LoginPage from "./pages/LoginPage/LoginPage";
+import AdministrationTemplate from "./cms/AdministrationTemplate/AdministrationTemplate";
+import MessagesMailboxPage from "./cms/MessagesMailboxPage/MessagesMailboxPage";
+import ReportsMailboxPage from "./cms/ReportsMailboxPage/ReportsMailboxPage";
+import AddOpinionPage from "./cms/AddOpinionPage/AddOpinionPage";
+import AddFrequentLiePage from "./cms/AddFrequentLiePage/AddFrequentLiePage";
+import UpdateOpinionPage from "./cms/UpdateOpinionPage/UpdateOpinionPage";
+import UpdateFrequentLiePage from "./cms/UpdateFrequentLiePage/UpdateFrequentLiePage";
+import EditorsOpinionsListPage from "./cms/EditorsOpinionsListPage/EditorsOpinionsListPage";
+import EditorFrequentLiesListPage from "./cms/EditorsFrequentLiesListPage/EditorsFrequentLiesListPage";
+import EditorsMediasListPage from "./cms/EditorsMediasListPage/EditorsMediasListPage";
+import AddMediaPage from "./cms/AddMediaPage/AddMediaPage";
+import UpdateMediaPage from "./cms/UpdateMediaPage/UpdateMediaPage";
 
 function App() {
   return (
