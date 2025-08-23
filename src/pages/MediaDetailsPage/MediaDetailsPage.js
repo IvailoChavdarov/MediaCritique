@@ -8,6 +8,7 @@ import { TbInfoSquareRoundedFilled } from "react-icons/tb";
 import NotFoundPage from '../../components/NotFoundPage/NotFoundPage';
 import ErrorPage from '../../components/ErrorPage/ErrorPage';
 import Loader from '../../components/Loader/Loader';
+import { useDocumentTitle } from '../../hooks/useDocumentTitle';
 
 export default function MediaDetailsPage(){
 
@@ -41,6 +42,8 @@ export default function MediaDetailsPage(){
         };
         fetchArticle();
     }, [mediaId]);
+
+    useDocumentTitle(media && media.name)
 
     let breadcrumbPath = [];
     if (loading){
@@ -106,7 +109,7 @@ export default function MediaDetailsPage(){
                         <p dangerouslySetInnerHTML={{ __html:media.owner}}/>
                         </>
                     }
-                    {media.employees && 
+                    {media.employees &&
                         <>
                         <h3>Водещи лица</h3>
                         <p dangerouslySetInnerHTML={{ __html:media.employees}}/>

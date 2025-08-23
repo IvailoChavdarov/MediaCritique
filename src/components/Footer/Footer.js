@@ -131,7 +131,7 @@ export default function Footer(){
                     <ul>
                         <li>
                             <MdWeb/>
-                            React, Sass, Yup
+                            React, Sass, Yup, TipTap
                         </li>
                         <li>
                             <AiOutlineDatabase/> Firebase
@@ -148,7 +148,7 @@ export default function Footer(){
                         </li>
                         <li>
                             <MdOutlineEmail/>
-                            ivailochav@gmail.com
+                            mediacritique.dev@gmail.com
                         </li>
                     </ul>
                     <div className="contact-socials">

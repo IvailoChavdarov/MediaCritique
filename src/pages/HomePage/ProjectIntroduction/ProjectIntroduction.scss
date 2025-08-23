@@ -1,0 +1,28 @@
+@use '../../../styles/colors' as *;
+
+.project-introduction{
+    margin-top: 20vw;
+    align-items: center;
+    .logo-container{
+        width: 500px;
+        height: 500px;
+        background-color: $background-color;
+        border-radius: 50%;
+        max-width: 80vw;
+        max-height: 80vw;
+        @media (max-width:768px) {
+            margin:auto;
+        }
+    }
+    .logo{
+        max-width: 80vw;
+        max-height: 80vw;
+    }
+}
+.project-introduction-text{
+    font-size: large;
+    max-width: 90vw;
+    margin: auto;
+    margin-bottom: 40px;
+    line-height: 1.3;
+}

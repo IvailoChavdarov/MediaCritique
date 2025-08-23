@@ -10,6 +10,7 @@ import { useState } from "react";
 import './ReportPage.scss'
 import ToastNotification from "../../components/ToastNotification/ToastNotification";
 import ReportPageExplain from "./ReportPageExplain/ReportPageExplain";
+import { useDocumentTitle } from "../../hooks/useDocumentTitle";
 
 const reportSchema = yup.object({
   subject: yup.string().required("Темата е задължителна."),
@@ -19,6 +20,8 @@ const reportSchema = yup.object({
 });
 
 export default function ReportPage(){
+    useDocumentTitle("Сигнализирай")
+
     const [isLoading, setIsLoading] = useState(false);
     const [requestState, setRequestState] = useState();
     const { register, handleSubmit, formState: { errors }, reset } = useForm({

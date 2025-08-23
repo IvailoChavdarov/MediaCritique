@@ -1,0 +1,94 @@
+@use '../../../styles/colors' as *;
+.opinions-showcase-section{
+    height: 600px;
+    overflow: visible;
+    margin-bottom: 20vw;
+    @media (max-width: 768px){
+        height: fit-content;
+    }
+}
+.opinions-showcase-deck{
+    display: flex;
+    justify-content: space-between;
+    width: 1400px;
+    max-width: 100vw;
+    align-items: center;
+    margin: auto;
+    @media (max-width: 768px){
+        flex-wrap: wrap;
+        flex-direction: column;
+        padding-bottom: 50px;
+    }
+}
+.opinion-showcase-card{
+    width: 400px;
+    max-width: 90vw;
+    height: 500px;
+    margin-top: 50px;
+    background-color: white;
+    box-shadow: 0 0 10px rgba($text-color, 0.5);
+    border-radius: .375rem;
+    overflow: hidden;
+    text-decoration: none;
+    transition: all .3s ;
+    position: relative;
+    img{
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+    }
+    &:hover{
+        transform: scale(1.05);
+    }
+}
+.opinion-showcase-card-content{
+    padding: 0 27px;
+    color: $text-color;
+}
+.opinion-showcase-card-title{
+    font-size: larger;
+    font-weight: 500;
+    text-decoration: none;
+}
+.opinion-showcase-card-text{
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    height: 4.75rem;
+}
+.opinion-showcase-card-footer{
+    width: 90%;
+    position: absolute;
+    bottom: 10px;
+    left: 20px;
+    opacity: 0.8;
+}
+.opinions-showcase-heading{
+    text-align: center;
+    max-width: 90vw;
+    margin: auto;
+    padding: 50px;
+    color: $background-color;
+    .call-to-action-button{
+        background-color: $text-color;
+        box-shadow: none;
+        margin-top:15px;
+        max-width: 300px;
+        font-weight: 600;
+        font-size: larger;
+        padding: 0.75rem 2rem;
+        &:hover{
+            background-color: darken($text-color, 5);
+        }
+    }
+}
+.opinions-showcase-title{
+    font-weight: 600;
+    font-size: xx-large;
+}
+.opinions-showcase-subtitle{
+    font-weight: 500;
+    font-size: x-large;
+}

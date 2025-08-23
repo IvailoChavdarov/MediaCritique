@@ -1,0 +1,183 @@
+@use '../../styles/colors' as *;
+@use '../../styles/timings' as *;
+.download-heading{
+    display: flex;
+    width: 1200px;
+    max-width: 90vw;
+    margin: auto;
+    margin-top: 30px;
+    margin-bottom: 100px;
+    flex-wrap: wrap;
+    gap:50px;
+    &-text{
+        flex: 2 1;
+        h1{
+            font-size: 40px;
+            font-family: 'Sensation', 'Roboto', sans-serif;
+            font-weight: 600;
+        }
+        h2{
+            font-weight: 500;
+            font-size: 20px;
+            color: rgba($text-color, 0.7);
+        }
+        h3{
+            display: flex;
+            font-weight: 500;
+            margin-top: 50px;
+            flex-wrap: wrap;
+            gap:20px;
+            font-size: 1.4rem;
+            span{
+                flex:1;
+                display: flex;
+                align-items: center;
+                gap:10px;
+                svg{
+                    font-size: x-large;
+                }
+            }
+            .easy-span svg{
+                color: $success-color;
+            }
+            .fast-span svg{
+                color: $primary-color;
+            }
+            .light-span svg{
+                color: #91ffbe;
+            }
+            .useful-span svg{
+                color: $accent-color;
+            }
+        }
+    }
+    &-logo{
+        flex: 1 1;
+        min-width: 300px;
+        height: 300px;
+        // max-width: 90vw;
+        // max-height: 90vw;
+        text-align: center;
+        border-radius: .375rem;
+        border:2px solid rgba($text-color, 0.4);
+        position: relative;
+        div{
+            width: 100%;
+            height: 100%;
+        }
+        svg{
+            width: 100%;
+            height: 100%;
+        }
+        .icon-shield{
+            fill:$primary-color;
+        }
+        .icon-logo{
+            fill:$background-color;
+        }
+        &:before{
+            width: 100px;
+            height: 100px;
+            font-size: 70px;
+            position: absolute;
+            left:55%;
+            border:10px solid white;
+            bottom: 10px;
+            border-radius: 50%;
+            content: '+';
+            background-color: $accent-color;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+}
+
+.download-browsers-instructions{
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: hidden;
+    h4{
+        margin: 0;
+    }
+}
+.download-browsers-nav{
+    display: flex;
+    width: 1200px;
+    max-width: 90vw;
+    margin: auto;
+    background-color: $background-color;
+}
+.download-browsers-nav-link{
+    flex:1 1;
+    cursor: pointer;
+    border: none;
+    line-height: 2rem;
+    padding: 10px 0;
+    font-size: larger;
+    display: flex;
+    gap:10px;
+    align-items: center;
+    justify-content: center;
+    color: $primary-color;
+    background-color: $background-color;
+    border-radius: .375rem;
+    overflow: hidden;
+    svg{
+        font-size: xx-large;
+    }
+    &.active{
+        background-color: $primary-color;
+        color: $background-color;
+
+    }
+}
+.instruction-content{
+    padding: 2.5vw;
+    width: 1200px;
+    max-width: 90vw;
+    margin: 50px auto;
+    white-space: wrap;
+    display: flex;
+    flex-wrap: wrap;
+    gap:50px;
+    align-items: center;
+    font-size: large;
+    line-height: 1.6rem;
+}
+.download-instruction{
+    display: inline-block;
+    min-width: 100vw;
+}
+.download-store-banner{
+    min-width: 300px;
+    border-radius:.375rem;
+    overflow: hidden;
+    max-width: 90vw;
+    margin: auto;
+    flex:1 1;
+    border: 1px solid rgba($text-color, 0.2);
+    img{
+        width: 100%;
+        max-width: 90vw;
+        object-fit: cover;
+    }
+}
+.browser-specific-instruction{
+    flex:1 1;
+}
+.browser-instruction{
+    margin: 40px 0;
+}
+.browser-heading{
+    width: 100%;
+    display: flex;
+    gap:10px;
+    align-items: center;
+    font-size: 32px;
+    font-weight: 600;
+    svg{
+        font-size: 40px;
+    }
+}

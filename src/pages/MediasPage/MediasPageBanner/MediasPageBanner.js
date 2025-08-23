@@ -1,7 +1,5 @@
 import './MediasPageBanner.scss'
-import hero1 from './hero1.png'
-import hero2 from './hero2.png'
-import hero3 from './medias.svg'
+import heroSvg from './medias.svg'
 import map from './bg.svg'
 import { ReactSVG } from 'react-svg';
 export default function MediasPageBanner(){
@@ -23,7 +21,7 @@ export default function MediasPageBanner(){
                     map
                 }/>
                 <ReactSVG src={
-                    hero3
+                    heroSvg
                 }/>
             </div>
         </div>

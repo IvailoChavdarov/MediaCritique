@@ -10,6 +10,7 @@ import ShareButtons from '../../components/ShareButtons/ShareButtons';
 import NotFoundPage from '../../components/NotFoundPage/NotFoundPage';
 import ErrorPage from '../../components/ErrorPage/ErrorPage';
 import Loader from '../../components/Loader/Loader';
+import { useDocumentTitle } from '../../hooks/useDocumentTitle';
 
 export default function FrequentLieDetailsPage(){
 
@@ -41,6 +42,8 @@ export default function FrequentLieDetailsPage(){
         };
         fetchLie();
     }, [lieId]);
+
+    useDocumentTitle(lieDetails && lieDetails.title)
 
     let breadcrumbPath = [];
     if (loading){

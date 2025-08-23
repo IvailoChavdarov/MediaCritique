@@ -1,0 +1,55 @@
+@use '../../styles/colors' as *;
+.showcase-block{
+    width: 1300px;
+    max-width: 100vw;
+    margin: auto;
+    display: flex;
+    gap: 10px;
+    padding: 10px;
+    margin-bottom: 100px;
+    .showcase-half{
+        flex: 1;
+        min-height: 300px;
+        max-width: 90vw;
+        min-width: 300px;
+        margin: auto;
+    }
+    @media (max-width:890px) {
+        flex-wrap: wrap;
+        flex-direction: column;
+        padding: 0;
+        margin-bottom: 30px;
+    }
+}
+.banner{
+    background-color: $background-color;
+    gap:30px;
+    padding: 30px;
+    border-radius: 5px;
+    @media (max-width:786px) {
+        padding: 0;
+    }
+}
+.center-content{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.showcase-heading{
+    color: $primary-color;
+    font-size: xx-large;
+    font-family: "Sensation", "Roboto";
+    font-style: italic;
+    padding: 5px;
+    max-width: 90vw;
+}
+.showcase-subheading{
+    font-size: large;
+    font-weight: 500;
+    max-width: 90vw;
+}
+.mobile-reverse{
+    @media (max-width:890px) {
+        flex-direction: column-reverse;
+    }
+}

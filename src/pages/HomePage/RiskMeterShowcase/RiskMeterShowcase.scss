@@ -1,0 +1,95 @@
+@use '../../../styles/colors' as *;
+.fill-danger-none, .text-danger-none{
+    fill: $risk-none-color;
+    color: $risk-none-color;
+}
+.fill-danger-low, .text-danger-low{
+    fill: $risk-low-color;
+    color: $risk-low-color;
+}
+.fill-danger-medium, .text-danger-medium{
+    fill: $risk-medium-color;
+    color: $risk-medium-color;
+}
+.fill-danger-high, .text-danger-high{
+    fill:$risk-high-color;
+    color:$risk-high-color;
+}
+.fill-danger-extreme, .text-danger-extreme{
+    fill:$risk-extreme-color;
+    color:$risk-extreme-color;
+}
+
+.fill-danger-none, .fill-danger-low, .fill-danger-medium, .fill-danger-high, .fill-danger-extreme{
+    opacity: 0;
+}
+
+.risk-meter{
+    width: 80%;
+    height: auto;
+}
+.meter-pointer{
+    opacity: 0;
+}
+
+$animation-speed: .5s;
+
+.risk-meter-block{
+    &.animate{
+        .risk-meter-list li:nth-child(1), .fill-danger-none{
+            animation:fadeIn $animation-speed forwards;
+        }
+        .risk-meter-list li:nth-child(2), .fill-danger-low{
+            animation:fadeIn $animation-speed forwards;
+            animation-delay: calc($animation-speed);
+        }
+        .risk-meter-list li:nth-child(3), .fill-danger-medium{
+            animation:fadeIn $animation-speed forwards;
+            animation-delay: calc(2*$animation-speed);
+        }
+        .risk-meter-list li:nth-child(4), .fill-danger-high{
+            animation:fadeIn $animation-speed forwards;
+            animation-delay: calc(3*$animation-speed);
+        }
+        .risk-meter-list li:nth-child(5), .fill-danger-extreme{
+            animation:fadeIn $animation-speed forwards;
+            animation-delay: calc(4*$animation-speed);
+        }
+        .meter-pointer{
+            animation:fadeIn $animation-speed forwards;
+            animation-delay: calc(5*$animation-speed);
+        }
+    }
+}
+.risk-meter-list{
+    padding: 0;
+    list-style:none;
+    font-size: medium;
+    li{
+        position: relative;
+        padding-left: 32px;
+        line-height: 1.8rem;
+        margin-bottom: 5px;
+        opacity: 0;
+        max-width: 85vw;
+        svg{
+            position: absolute;
+            top: 0px;
+            left: 0;
+            font-size: x-large;
+        }
+    }
+}
+
+.risk-meter-block:has(>.risk-meter-container:has(div:hover)){
+    color: red!important;
+}
+
+@keyframes fadeIn{
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}

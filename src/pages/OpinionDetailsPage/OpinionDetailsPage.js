@@ -10,6 +10,7 @@ import ShareButtons from '../../components/ShareButtons/ShareButtons';
 import NotFoundPage from '../../components/NotFoundPage/NotFoundPage';
 import ErrorPage from '../../components/ErrorPage/ErrorPage';
 import Loader from '../../components/Loader/Loader';
+import { useDocumentTitle } from '../../hooks/useDocumentTitle';
 
 export default function OpinionDetailsPage(){
 
@@ -32,6 +33,7 @@ export default function OpinionDetailsPage(){
                     date: transliterateDate(data.datePosted.toDate().toDateString()),
                     ...data }
                 );
+                
             } 
         } 
         catch (error) {
@@ -44,6 +46,8 @@ export default function OpinionDetailsPage(){
         fetchArticle();
     }, [opinionId]);
 
+    useDocumentTitle(article && article.title)
+    
     let breadcrumbPath = [];
     if (loading){
         return <Loader/>

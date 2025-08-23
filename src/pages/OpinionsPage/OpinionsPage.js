@@ -1,5 +1,5 @@
 import { db } from "../../firebase";
-import { collection, getDocs, limit, query, startAfter, where } from 'firebase/firestore';
+import { collection, getDocs, limit, orderBy, query, startAfter, where } from 'firebase/firestore';
 import { useEffect, useState } from "react";
 import { transliterateDate } from "../../utils/transliterate";
 import ArticlesGrid from '../../components/ArticlesGrid/ArticlesGrid'
@@ -7,9 +7,12 @@ import './OpinionsPage.scss'
 import ErrorPage from "../../components/ErrorPage/ErrorPage";
 import Loader from "../../components/Loader/Loader";
 import OpinionsPageExplain from "./OpinionsPageExplain/OpinionsPageExplain";
+import { useDocumentTitle } from "../../hooks/useDocumentTitle";
 
 
 export default function OpinionsPage() {
+    useDocumentTitle("Мнения")
+
     const [data, setData] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState(null);
@@ -20,7 +23,13 @@ export default function OpinionsPage() {
     useEffect(() => {
         const fetchInitialData = async () => {
             try {
-                const firstPageQuery = query(collection(db, "opinions"), where("isDeleted", "!=", true), limit(pageSize));
+                const firstPageQuery = query(
+                    collection(db, "opinions"),
+                    where("isDeleted", "!=", true),
+                    orderBy("isDeleted"),
+                    orderBy("datePosted", "desc"),
+                    limit(pageSize)
+                );
                 const documentSnapshots = await getDocs(firstPageQuery);
                 
                 const articles = documentSnapshots.docs.map(doc => ({
@@ -48,6 +57,8 @@ export default function OpinionsPage() {
             const nextPageQuery = query(
                 collection(db, "opinions"),
                 where("isDeleted", "!=", true),
+                orderBy("isDeleted"),
+                orderBy("datePosted", "desc"),
                 startAfter(lastVisible),
                 limit(pageSize)
             );

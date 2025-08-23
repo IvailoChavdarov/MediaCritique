@@ -20,7 +20,7 @@ export default function TopNav(){
 
     useEffect(() => {
         const handleScroll = () => {
-            setIsFixed(window.scrollY > 200);
+            setIsFixed(window.scrollY > window.screen.availHeight-300);
         };
         window.addEventListener('scroll', handleScroll);
         return () => window.removeEventListener('scroll', handleScroll);
@@ -46,7 +46,7 @@ export default function TopNav(){
                 </div>
                 <div>
                     <NavLink to="/report" onClick={scrollToTop}>Сигнализирай</NavLink>
-                    <NavLink to="/download" className="call-to-action-button" onClick={scrollToTop}>Добави към {browserName.current === "?"? "Браузър" : browserName.current }</NavLink>
+                    <NavLink to={`/download`} className="call-to-action-button" onClick={scrollToTop}>Добави към {browserName.current === "?"? "Браузър" : browserName.current }</NavLink>
                 </div>
             </nav>
         </div>
@@ -55,10 +55,10 @@ export default function TopNav(){
 
 function getBrowserName() {
     const userAgent = navigator.userAgent.toLowerCase();
-    if (userAgent.includes("opr/") || userAgent.includes("opera"))
-    if (userAgent.includes('firefox')) return "Firefox";
-    if (userAgent.includes('edg')) return "Edge";
-    if (navigator.brave) return "Brave";
-    if (userAgent.includes("safari/") && !userAgent.includes("chrome/") && !userAgent.includes("chromium/")) return "Safari";
+    if (userAgent.includes("opr/") || userAgent.includes("opera")) return "Opera"
+    else if (userAgent.includes('firefox')) return "Firefox";
+    else if (userAgent.includes('edg')) return "Edge";
+    else if (navigator.brave) return "Brave";
+    else if (userAgent.includes("safari/") && !userAgent.includes("chrome/") && !userAgent.includes("chromium/")) return "Safari";
     return "Chrome";
 }

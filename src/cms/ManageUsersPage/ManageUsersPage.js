@@ -54,7 +54,8 @@ export default function ManageUsersPage() {
       await setDoc(doc(db, "editors", newUser.uid), {
         name: data.name,
         email: data.email,
-        createdAt: serverTimestamp()
+        createdAt: serverTimestamp(),
+        isDisabled: false
       });
 
       await secondaryAuth.signOut();
@@ -71,6 +72,7 @@ export default function ManageUsersPage() {
       reset()
     }
     catch (err) {
+      console.log(err.message)
       setRequestState({
         id: Date.now(),
         state: "failure",

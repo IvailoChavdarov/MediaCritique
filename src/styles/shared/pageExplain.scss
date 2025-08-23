@@ -1,7 +1,7 @@
 @use '../../styles/colors' as *;
 @import url('https://fonts.googleapis.com/css2?family=Sansation:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap');
 .page-explain{
-    max-width: 1400px;
+    max-width: 1200px;
     margin:auto;
     padding: 10px;
     .page-explain-heading{
@@ -9,10 +9,19 @@
         font-family: 'Sensation', 'Roboto';
         font-style: italic;
         margin-bottom: 0;
+        @media (max-width:802px){
+            max-width: 90vw;
+            margin: auto;
+            margin-bottom: 0;
+        }
     }
     .page-explain-subheading{
         opacity: 0.8;
         font-weight: 400;
+        @media (max-width:802px){
+            max-width: 90vw;
+            margin:20px auto;
+        }
     }
 }
 .explain-row {
@@ -28,6 +37,7 @@
     // }
     @media (max-width:802px){
         padding-top: 0;
+        gap:0;
     } 
     .explain-info {
         flex: 6; 

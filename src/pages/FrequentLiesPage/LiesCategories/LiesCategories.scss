@@ -30,6 +30,7 @@
     background-color: white;
     position: relative;
     z-index: 1;
+    margin-bottom: 120px;
     .lie-category{
         background-color: #f3f7fc;
         border-radius: 15px;
@@ -39,7 +40,9 @@
         align-items: center;
         flex-wrap: wrap;
         padding-top: 25px;
-        @media (min-width: 600px) {
+        max-width: 90vw;
+        margin: auto;
+        @media (min-width: 786px) {
             flex-basis: calc(50% - 30px);
             flex-wrap: nowrap;
             padding-top: 0;
@@ -68,7 +71,9 @@
         }
         &-explain{
             padding: 25px 20px;
-            padding-left: 0;
+            @media (min-width: 786px) {
+                padding-left: 0;
+            }
             align-self: center;
             h4{
                 margin: 0;
@@ -81,8 +86,10 @@
                 margin-top: 0;
                 color: rgba($text-color, 0.8);
                 line-height: 1.4rem;
-                border-left: 2px solid rgba($primary-color, 0.4);
-                padding-left: 12px;
+                @media (min-width: 786px) {
+                    border-left: 2px solid rgba($primary-color, 0.4);
+                    padding-left: 12px;
+                }
             }
         }
     }

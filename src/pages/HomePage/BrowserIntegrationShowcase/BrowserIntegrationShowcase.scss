@@ -1,0 +1,161 @@
+@use '../../../styles/colors' as *;
+.browser-integration{
+    min-height: 700px;
+    padding: 20px 0;
+    .showcase-heading{
+        color: $background-color;
+        font-style:normal;
+        font-size: 50px;
+        margin-bottom: 10px;
+        @media (max-width: 768px) {
+            text-align: center;
+        }
+    }
+    .showcase-subheading{
+        color: $background-color;
+        padding: 5px;
+        margin-top: 10px;
+    }
+    .call-to-action-button{
+        background-color: $text-color;
+        box-shadow: none;
+        margin:50px 5px;
+        max-width: 300px;
+        font-weight: 600;
+        font-size: large;
+        padding: 0.75rem 2rem;
+        &:hover{
+            background-color: darken($text-color, 5);
+        }
+    }
+}
+.browser-logos{
+    position: relative;
+    @media (max-width: 891px) {
+        display: flex;
+        flex-wrap: wrap;
+        gap:20px;
+        align-items: center;
+        justify-content: center;
+    }
+}
+$top-margin: 100px;
+$left-margin: 100px;
+.browser-logo-container{
+    height: 150px;
+    width: 150px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    position: absolute;
+    box-shadow: 0 0 15px $text-color;
+
+    @media (max-width: 891px) {
+        position: static;
+    }
+    svg{
+        height: 100px;
+        width: 100px;
+        color: $text-color;
+    }
+
+    &:nth-child(1){
+        left:calc(50% + $left-margin - 75px);
+        top:$top-margin;   
+    }
+    // &:nth-child(2){
+    //     left:calc(10% + $left-margin);
+    //     top:calc($top-margin + 100px);
+    //     animation: 
+    //         animate1 1s forwards,
+    //         animate2 1s 1s forwards,
+    //         animate3 1s 2s forwards,
+    //         animate4 1s 3s forwards;
+    // }
+    // &:nth-child(3){
+    //     right:calc(10% - $left-margin);
+    //     top:calc($top-margin + 100px);
+    //     animation: animate1 1s;
+    // }
+    // &:nth-child(4){
+    //     animation: 
+    //         animate1 1s forwards,
+    //         animate2 1s 1s forwards, /* starts after 2s (duration of first) */
+    //         animate3 1s 2s forwards;
+    // }
+    // &:nth-child(5){
+    //       animation: 
+    //         animate1 1s forwards,
+    //         animate2 1s 1s forwards; /* starts after 2s (duration of first) */
+    // }
+}
+#browser-logos-circle.animate .browser-logo-container{
+    &:nth-child(2){
+        left:calc(10% + $left-margin);
+        top:calc($top-margin + 100px);
+        animation: 
+            animate1 1s forwards,
+            animate2 1s 1s forwards,
+            animate3 1s 2s forwards,
+            animate4 1s 3s forwards;
+    }
+    &:nth-child(3){
+        right:calc(10% - $left-margin);
+        top:calc($top-margin + 100px);
+        animation: animate1 1s;
+    }
+    &:nth-child(4){
+        animation: 
+            animate1 1s forwards,
+            animate2 1s 1s forwards, /* starts after 2s (duration of first) */
+            animate3 1s 2s forwards;
+    }
+    &:nth-child(5){
+          animation: 
+            animate1 1s forwards,
+            animate2 1s 1s forwards; /* starts after 2s (duration of first) */
+    }
+}
+
+@keyframes animate1{
+    0%{
+        left:calc(50% + $left-margin - 75px);
+        top:$top-margin;
+    }
+    100%{
+        left:calc(90% - $left-margin);
+        top:calc($top-margin + 100px);
+    }
+}
+@keyframes animate2{
+    0%{
+        left:calc(90% - $left-margin);
+        top:calc($top-margin + 100px);
+    }
+    100%{
+        left:calc(80% - $left-margin + 65px);
+        top:calc($top-margin + 300px);
+    }
+}
+@keyframes animate3{
+    0%{
+        left:calc(80% - $left-margin + 65px);
+        top:calc($top-margin + 300px);
+    }
+    100%{
+        left:calc(20% + $left-margin);
+        top:calc($top-margin + 300px);
+    }
+}
+@keyframes animate4{
+    0%{
+        left:calc(20% + $left-margin);
+        top:calc($top-margin + 300px);
+    }
+    100%{
+        left:calc(10% + $left-margin);
+        top:calc($top-margin + 100px);
+    }
+}

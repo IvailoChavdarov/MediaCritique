@@ -1,7 +1,8 @@
 import { 
     BrowserRouter, 
     Route,
-    Routes
+    Routes,
+    useLocation
 } from "react-router-dom";
 import TopNav from './components/TopNav/TopNav';
 import MediasPage from "./pages/MediasPage/MediasPage";
@@ -30,26 +31,48 @@ import EditorFrequentLiesListPage from "./cms/EditorsFrequentLiesListPage/Editor
 import EditorsMediasListPage from "./cms/EditorsMediasListPage/EditorsMediasListPage";
 import AddMediaPage from "./cms/AddMediaPage/AddMediaPage";
 import UpdateMediaPage from "./cms/UpdateMediaPage/UpdateMediaPage";
+import AddFacebookPage from "./cms/AddFacebookPage/AddFacebookPage";
+import EditorsFacebooksListPage from "./cms/EditorsFacebooksListPage/EditorsFacebooksListPage";
+import UpdateFacebookPage from "./cms/UpdateFacebookPage/UpdateFacebookPage";
+import DownloadPage from "./pages/DownloadPage/DownloadPage";
+import AboutPage from "./pages/AboutPage/AboutPage";
+import { useEffect } from "react";
+import PrivacyPolicyPage from "./pages/PrivacyPolicyPage/PrivacyPolicyPage";
 
 function App() {
+  function ScrollToTop() {
+    const { pathname } = useLocation();
+
+    useEffect(() => {
+      window.scrollTo(0, 0);
+    }, [pathname]);
+
+    return null;
+  }
+
   return (
         <BrowserRouter>
+          <ScrollToTop/>
           <TopNav/>
           <Routes>
               <Route path="/" element={<HomePage/>} /* Design idea: https://www.stayfocusd.com https://www.joinhoney.com https://nordvpn.com/ *//>
-              <Route path="/download" element={<h1 className="text-center">Изтегли</h1>} /* Design idea: https://codepen.io/alexandro_lebrucho/pen/zxxOyYQ *//>
+              <Route path="/download" element={<DownloadPage/>} /* Design idea: https://codepen.io/alexandro_lebrucho/pen/zxxOyYQ *//>
               <Route path="/lies" element={<FrequentLiesPage/>} />
               <Route path="/lies/:compoundId" element={<FrequentLieDetailsPage />} />
               <Route path="/opinions" element={<OpinionsPage/>} />
               <Route path="/opinions/:compoundId" element={<ArticleDetailsPage />} />
               <Route path="/medias" element={<MediasPage/>}></Route>
               <Route path="/medias/:compoundId" element={<MediaDetailsPage />} />
-              <Route path="/about" element={<h1>За нас</h1>}></Route>
+              <Route path="/about" element={<AboutPage/>}></Route>
               <Route path="/report" element={<ReportPage/>}></Route>
+              <Route path="/policy" element={<PrivacyPolicyPage/>}></Route>
               <Route path="/login" element={<LoginPage/>}></Route>
               <Route element={<PrivateRoute/>}>
                 <Route element={<AdministrationTemplate/>}>
                   <Route path="/dashboard" element={<h1>Dashboard</h1>} />
+                  <Route path="/cms/facebooks" element={<EditorsFacebooksListPage/>} />
+                  <Route path="/cms/add/facebooks" element={<AddFacebookPage/>} />
+                  <Route path="/cms/edit/facebooks/:id" element={<UpdateFacebookPage/>} />
                   <Route path="/cms/opinions" element={<EditorsOpinionsListPage/>} />
                   <Route path="/cms/add/opinions" element={<AddOpinionPage/>} />
                   <Route path="/cms/edit/opinions/:id" element={<UpdateOpinionPage/>} />

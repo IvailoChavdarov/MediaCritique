@@ -9,6 +9,7 @@ import Loader from '../../components/Loader/Loader';
 import { useAuth } from '../../hooks/useAuth';
 import './LoginPage.scss'
 import Logo from '../../components/Logo/Logo';
+import { useDocumentTitle } from '../../hooks/useDocumentTitle';
 
 const loginSchema = yup.object({
   password: yup.string()
@@ -23,6 +24,7 @@ const loginSchema = yup.object({
 });
 
 export default function LoginPage() {
+  useDocumentTitle("Влез")
   const { user, loading } = useAuth();
   const [isLoading, setIsLoading] = useState(false);
   const { register, handleSubmit, formState: { errors }, reset } = useForm({

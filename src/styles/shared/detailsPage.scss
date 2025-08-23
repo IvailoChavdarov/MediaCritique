@@ -65,7 +65,9 @@
         -moz-tab-size: 4;
         white-space: pre-wrap;
         @media (max-width:768px) {
-            padding: 20px;
+            padding: 0;
+            max-width: 90vw;
+            margin: auto;
         }
         p{
             text-align: left;
@@ -99,8 +101,7 @@
             font-size: larger;
             line-height: 130%;
             font-weight: 600;
-            margin: 25px;
-            margin-bottom: 60px;
+            margin:60px 25px;
             position: relative;
             text-align: left;
             @media (max-width: 768px) {
@@ -114,9 +115,15 @@
                 margin-right: .3rem;
                 margin-top: .325rem;
                 height: 0;
+                align-self: flex-start;
             }
             p:has(>img){
                 display: flex;
+                align-items: center;
+                @media (max-width: 800px){
+                    flex-wrap: wrap;
+                    gap:10px;
+                }
             }
             .quote-author{
                 position: absolute;
@@ -147,6 +154,9 @@
             max-width: 90vw;
             max-height: 40vh;
             margin: 30px;
+            @media (max-width: 800px){
+                margin: 20px 0;
+            }
         }
         .comparison{
             overflow: hidden;
@@ -190,9 +200,9 @@
     }
 }
 .reference-list-container{
-    min-width: 80%;
-    margin: 1rem 0;
-    margin-left: 10vw;
+    width: 90vw;
+    margin: 1rem auto;
+    min-height: 300px;
     ul{
         list-style: none;
     }

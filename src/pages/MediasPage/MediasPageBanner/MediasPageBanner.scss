@@ -28,6 +28,9 @@
                 transform: none;
                 top:60%;
             }
+            @media (max-width:800px) {
+                top:75%;
+            }
         }
         svg{
             max-width: 30vw;

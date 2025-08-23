@@ -1,5 +1,5 @@
 import { db } from "../../firebase";
-import { collection, query, getDocs, where, limit, startAfter } from "firebase/firestore";
+import { collection, query, getDocs, limit, startAfter } from "firebase/firestore";
 import { useEffect, useState } from "react";
 import { Link } from "react-router";
 import { slugify } from "../../utils/slugify";
@@ -11,16 +11,20 @@ import ErrorPage from "../../components/ErrorPage/ErrorPage";
 import Loader from "../../components/Loader/Loader";
 import MediasPageBanner from "./MediasPageBanner/MediasPageBanner";
 import CheckMediasSuggestions from "./CheckMediaSuggestions/CheckMediasSuggestions";
+import { useDocumentTitle } from "../../hooks/useDocumentTitle";
 
 export default function MediasPage() {
+    useDocumentTitle("Медии")
+
     const [data, setData] = useState([]);
     const [lastDoc, setLastDoc] = useState(null);
     const [loading, setLoading] = useState(false);
+
     //follow first load for loader component
     const [isLoadingInitial, setIsLoadingInitial] = useState(true);
     const [hasMore, setHasMore] = useState(true);
     const [hasError, setHasError] = useState(false);
-    const pageSize = 15; 
+    const pageSize = 10; 
     const loadMedias = async (initial = false) => {
         setLoading(true);
         try {

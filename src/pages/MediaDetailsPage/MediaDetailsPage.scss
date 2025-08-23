@@ -64,19 +64,19 @@
                     color: rgba(255,255,255, 0.7);
                 }
                 :nth-child(1){
-                    background-color: #5f9600;
+                    background-color: $risk-none-color;
                 }
                 :nth-child(2){
-                    background-color:#afc611 ;
+                    background-color:$risk-low-color;
                 }
                 :nth-child(3){
-                    background-color: #ffc302;
+                    background-color: $risk-medium-color;
                 }
                 :nth-child(4){
-                    background-color: #e74404;
+                    background-color: $risk-high-color;
                 }
                 :nth-child(5){
-                    background-color: #b20811;
+                    background-color: $risk-extreme-color;
                 }
                 .active{
                     height: 55px;

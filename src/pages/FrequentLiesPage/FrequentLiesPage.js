@@ -9,6 +9,7 @@ import Loader from "../../components/Loader/Loader";
 import FrequentLiesBanner from "./FrequentLiesBanner/FrequentLiesBanner";
 import LiesCategories from "./LiesCategories/LiesCategories";
 import DefenceSuggestions from "./DefenceSuggestions/DefenceSuggestions";
+import { useDocumentTitle } from "../../hooks/useDocumentTitle";
 
 export default function FrequentLiesPage(){
     const [data, setData] = useState([]);
@@ -17,7 +18,7 @@ export default function FrequentLiesPage(){
     const [lastVisible, setLastVisible] = useState(null);
     const [hasMore, setHasMore] = useState(true);
     const pageSize = 6;
-
+    useDocumentTitle("Често срещани лъжи")
     useEffect(() => {
         const fetchInitialData = async () => {
             try {

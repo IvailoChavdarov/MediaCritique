@@ -6,6 +6,10 @@ $share-buttons-size: 45px;
     min-width: 220px;
     position: sticky;
     top:100px;
+    @media (max-width: 800px){
+        margin: auto;
+        width: 90vw;
+    }
     .share-message{
         font-size: larger;
         margin:20px 0;
